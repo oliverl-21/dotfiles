@@ -1,0 +1,31 @@
+function atoi
+{
+#Returns the integer representation of an IP arg, passed in ascii dotted-decimal notation (x.x.x.x)
+IP=$1; IPNUM=0
+for (( i=0 ; i<4 ; ++i )); do
+((IPNUM+=${IP%%.*}*$((256**$((3-${i}))))))
+IP=${IP#*.}
+done
+echo $IPNUM
+}
+
+function itoa
+{
+#returns the dotted-decimal ascii form of an IP arg passed in integer format
+echo -n $(($(($(($((${1}/256))/256))/256))%256)).
+echo -n $(($(($((${1}/256))/256))%256)).
+echo -n $(($((${1}/256))%256)).
+echo $((${1}%256))
+}
+# ansible galaxy collection update
+function agu
+{
+ansible-galaxy collection install $(ansible-galaxy collection list | awk '{if(NR>5)print}' | cut -d ' ' -f 1 -s) --upgrade --ignore-errors
+}
+
+function ansx
+{
+env /usr/bin/arch -x86_64 zsh
+cd /Users/oliver/Documents/code/ansible
+source ./bin/activate
+}
