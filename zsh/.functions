@@ -8,7 +8,6 @@ IP=${IP#*.}
 done
 echo $IPNUM
 }
-
 function itoa
 {
 #returns the dotted-decimal ascii form of an IP arg passed in integer format
@@ -27,4 +26,41 @@ function ansx
 {
 env /usr/bin/arch -x86_64 zsh
 cd /Users/oliver/Documents/code/ansiblex86 && ./bin/activate
+}
+function terraform() 
+{ 
+    echo "+ terraform $@"; command terraform $@; 
+    }
+
+# set a variable for your FIRMWARE_PATH in ~/.zshenv or ~/.zshrc
+# echo 'export FIRMWARE_PATH="your path"' >> ~/.zshenv
+# 
+function starthttp
+{
+# Serve a folder over HTTP
+# since macOS Monterey no sudo required for a port binding <=1023
+origin=$PWD
+cd $FIRMWARE_PATH && nohup python3 -m http.server 80 > /dev/null 2>&1 &
+cd $origin
+
+}
+function stophttp
+{
+# Stop serving a folder over HTTP
+kill `ps ax | grep 'Python \-m http.server' | cut -d" " -f1`
+
+}
+function starttftp
+{
+# Serve a folder over TFTP
+# since macOS Monterey no sudo required for a port binding <=1023
+# install: pip3 install py3tftp
+origin=$PWD
+cd $FIRMWARE_PATH && nohup py3tftp -p 69 > /dev/null 2>&1 &
+cd $origin
+}
+function stoptftp
+{
+#Stop serving a folder over TFTP
+kill `ps ax | grep 'py3tftp \-p' | cut -d " " -f1`
 }

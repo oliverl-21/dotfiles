@@ -28,10 +28,19 @@ alias ls="ls -G"
 alias av="source ./bin/activate"
 alias bug="brew update && brew upgrade && brew cu -a -y"
 alias cdans="cd /Users/oliver/Documents/code/ansible/ && source ./bin/activate"
-alias cdansx="cd /Users/oliver/Documents/code/ansiblex86/ && source ./bin/activate"
-# alias cdansx="cd /Users/oliver/Documents/code/ansiblex86/ && source ./bin/activate ; env /usr/bin/arch -x86_64 zsh ./bin/activate"
-alias arm=""
 alias cdtf="cd /Users/oliver/Documents/code/Terraform"
+# Terraform Aliases
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
+alias tfc='terraform console'
+alias tfd='terraform destroy'
+alias tfda='terraform destroy -auto-approve'
+alias tff='terraform fmt'
+alias tfg='terraform graph'
+alias tfim='terraform import'
+alias tfin='terraform init'
 # Prompt
 setopt PROMPT_SUBST ; PROMPT="%F{blue}%n%f at %F{cyan}%m%f in %F{green}%1~%f"$'\n'"$ "
 
