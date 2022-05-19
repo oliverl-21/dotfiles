@@ -22,11 +22,6 @@ function agu
 rm -rf ./lib/python3.8/site-packages/ansible_collections && ansible-galaxy collection install $(ansible-galaxy collection list | awk '{if(NR>5)print}' | cut -d ' ' -f 1 -s) --upgrade --ignore-errors
 }
 
-function ansx
-{
-env /usr/bin/arch -x86_64 zsh
-cd /Users/oliver/Documents/code/ansiblex86 && ./bin/activate
-}
 function terraform() 
 { 
     echo "+ terraform $@"; command terraform $@; 
