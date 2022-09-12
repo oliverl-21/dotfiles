@@ -29,6 +29,7 @@ alias av="source ./bin/activate"
 alias bug="brew update && brew upgrade && brew cu -a -y"
 alias cdans="cd /Users/oliver/Documents/code/ansible/ && source ./bin/activate"
 alias cdtf="cd /Users/oliver/Documents/code/Terraform"
+alias duf="du -sh -- * .*"
 # Terraform Aliases
 alias tf='terraform'
 alias tfp='terraform plan'
