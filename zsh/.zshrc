@@ -6,7 +6,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # no escaping
 unsetopt nomatch
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/oliver/Library/Python/3.8/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/oliver/Library/Python/3.9/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/"
 
 [ -f .zprofile ] && source .zprofile
 [ -f .functions ] && source .functions
