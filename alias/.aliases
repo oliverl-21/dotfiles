@@ -4,8 +4,8 @@ alias ll="ls -alhG"
 alias ls="ls -G"
 alias av="source ./bin/activate"
 alias bug="brew update && brew upgrade && brew cu -a -y"
-alias cdans="cd /Users/oliver/Documents/code/ansible/ && source ./bin/activate"
-alias cdtf="cd /Users/oliver/Documents/code/Terraform"
+alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
+alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
 # Terraform Aliases
 alias tf='terraform'
@@ -22,6 +22,9 @@ alias tfin='terraform init'
 # docker
 alias dcp='docker-compose pull'
 alias dcu='docker-compose up -d --force-recreate'
+# git
+alias gitfpull='git fetch && git pull'
+alias gitac='git commit -a -m'
 
 #bash dir Colors
 # enable color support of ls and also add handy aliases
