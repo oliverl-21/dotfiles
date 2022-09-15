@@ -25,6 +25,7 @@ alias dcu='docker-compose up -d --force-recreate'
 # git
 alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
+alias gitp='git push'
 
 #bash dir Colors
 # enable color support of ls and also add handy aliases
