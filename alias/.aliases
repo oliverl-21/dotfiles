@@ -1,0 +1,24 @@
+# Aliases
+alias ..="cd .."
+alias ll="ls -alhG"
+alias ls="ls -G"
+alias av="source ./bin/activate"
+alias bug="brew update && brew upgrade && brew cu -a -y"
+alias cdans="cd /Users/oliver/Documents/code/ansible/ && source ./bin/activate"
+alias cdtf="cd /Users/oliver/Documents/code/Terraform"
+alias duf="du -sh -- * .*"
+# Terraform Aliases
+alias tf='terraform'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
+alias tfaa='terraform apply -auto-approve'
+alias tfc='terraform console'
+alias tfd='terraform destroy'
+alias tfda='terraform destroy -auto-approve'
+alias tff='terraform fmt'
+alias tfg='terraform graph'
+alias tfim='terraform import'
+alias tfin='terraform init'
+# docker
+alias dcp='docker-compose pull'
+alias dcu='docker-compose up -d --force-recreate'
