@@ -70,6 +70,5 @@ function _pip_completion {
 }
 if [ -n "$ZSH_VERSION" ]; then
     compctl -K _pip_completion pip3
-else
 fi
 # pip zsh completion end
