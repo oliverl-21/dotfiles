@@ -111,7 +111,15 @@ fi
 if [ -f ~/.functions ]; then
     . ~/.functions
 fi
-
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 2>/dev/null ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
