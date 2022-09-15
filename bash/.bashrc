@@ -105,12 +105,6 @@ alias dcu='docker-compose up -d'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-if [ -f ~/.functions ]; then
-    . ~/.functions
-fi
 # pip bash completion start
 _pip_completion()
 {
@@ -131,7 +125,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for file in ~/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports}; do
+for file in ~/.{bash_prompt,bash_aliases,functions,path,dockerfunc,extra,exports}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"

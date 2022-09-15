@@ -19,7 +19,10 @@ echo $((${1}%256))
 # ansible galaxy collection update
 function agu
 {
-rm -rf ./lib/python$(python3 --version | cut -d ' ' -f 2 -s | cut -d '.' -f 1-2)/site-packages/ansible_collections && ansible-galaxy collection install $(ansible-galaxy collection list | awk '{if(NR>5)print}' | cut -d ' ' -f 1 -s) --upgrade --ignore-errors
+# rm -rf ./lib/python$(python3 --version | cut -d ' ' -f 2 -s | cut -d '.' -f 1-2)/site-packages/ansible_collections && ansible-galaxy collection install $(ansible-galaxy collection list | awk '{if(NR>5)print}' | cut -d ' ' -f 1 -s) --upgrade --ignore-errors
+command -v ansible &> /dev/null && rm -rf $(pip show ansible | grep Location | cut -d ' ' -f 2)/ansible_collections 
+command -v ansible-galaxy &> /dev/null && ansible-galaxy collection install $(ansible-galaxy collection list | cut -d ' ' -f 1 -s | cut -d '.' -f 1,2 -s) --upgrade --ignore-errors
+
 }
 
 function terraform() 

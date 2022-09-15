@@ -10,10 +10,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
 
 [ -f .zprofile ] && source .zprofile
 [ -f .functions ] && source .functions
-
-# has to be last source
-[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# [ -f .zshprompt ] && source .zshprompt
+[ -f .zshprompt ] && source .zshprompt
 
 #Completion
 autoload -U +X bashcompinit && bashcompinit
@@ -44,6 +41,5 @@ alias tfim='terraform import'
 alias tfin='terraform init'
 # Prompt
 setopt PROMPT_SUBST ; PROMPT="%F{blue}%n%f at %F{cyan}%m%f in %F{green}%1~%f"$'\n'"$ "
-
-autoload -U +X bashcompinit && bashcompinit
-
+# has to be last source
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
