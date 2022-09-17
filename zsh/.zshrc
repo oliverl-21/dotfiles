@@ -5,13 +5,20 @@ export CLICOLOR_FORCE=1
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 # no escaping
 unsetopt nomatch
+# PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+# append linux PATH
+[ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/oliver/Library/Python/3.9/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/"
-
-[ -f .zprofile ] && source .zprofile
-[ -f .functions ] && source .functions
-[ -f .zshprompt ] && source .zshprompt
-[ -f .aliases ] && source .aliases
+# append mac PATH
+[ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
+[ -d $HOME/Library/Python/3.9/bin ] && export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/:$PATH"
+# source files
+[ -f $HOME/.zprofile ] && source $HOME/.zprofile
+[ -f $HOME/.functions ] && source $HOME/.functions
+[ -f $HOME/.zshprompt ] && source $HOME/.zshprompt
+[ -f $HOME/.aliases ] && source $HOME/.aliases
 
 precmd() {
     psvar=()
