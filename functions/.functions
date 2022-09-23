@@ -38,7 +38,7 @@ function starthttp
 origin=$PWD
 cd $FIRMWARE_PATH && nohup python3 -m http.server 80 > /dev/null 2>&1 &
 cd $origin
-
+unset PWD
 }
 function stophttp
 {
@@ -54,6 +54,7 @@ function starttftp
 origin=$PWD
 cd $FIRMWARE_PATH && nohup py3tftp -p 69 > /dev/null 2>&1 &
 cd $origin
+unset PWD
 }
 function stoptftp
 {
