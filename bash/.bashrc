@@ -100,7 +100,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for file in ~/.{bash_prompt,aliases,functions,path,dockerfunc,extra,exports,env}; do
+for file in ~/.{bash_prompt,env,aliases,functions,path,dockerfunc,extra,exports}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
