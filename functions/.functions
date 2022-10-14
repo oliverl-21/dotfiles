@@ -73,10 +73,19 @@ function amilocaladmin() {
     then
         echo "You are already an Localadmin"
         "$@";
-    else [ -d /Applications/Self\ Service.app ] && /usr/bin/open "/Applications/Self Service.app"
+    elif [ -d /Applications/Self\ Service.app ];
+    then
+        echo "not an Admin, Starting Self Service APP"
+        /usr/bin/open "/Applications/Self Service.app"
     fi
     unset checkadmin
 }
 function bug {
-    brew update && brew upgrade && brew cu -a -y
+    localsys="$(uname)"
+    if [[ $localsys == "Darwin" ]];
+    then
+    echo "executing brew upgrade"
+    amilocaladmin brew update && brew upgrade && brew cu -a -y
+    fi
+    unset localsys
 }
