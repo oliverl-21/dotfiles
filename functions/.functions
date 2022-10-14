@@ -68,15 +68,16 @@ fi
 # pip zsh completion end
 
 function amilocaladmin() {
-    checkadmin="$(dseditgroup -o checkmember admin)"
-    if [ $checkadmin =~ "yes" ]; 
+    localsys="$(uname)";
+    checkadmin="$(dseditgroup -o checkmember admin)";
+    if [[ $checkadmin =~ "yes" && $localsys == "Darwin" ]]; 
     then
-        echo "You are already an Localadmin"
+        echo "You are already an Localadmin";
         "$@";
     elif [ -d /Applications/Self\ Service.app ];
     then
-        echo "not an Admin, Starting Self Service APP"
-        /usr/bin/open "/Applications/Self Service.app"
+        echo "not an Admin, Starting Self Service APP";
+        /usr/bin/open "/Applications/Self Service.app";
     fi
     unset checkadmin
 }
