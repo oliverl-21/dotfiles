@@ -15,10 +15,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -d $HOME/Library/Python/3.9/bin ] && export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 [ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/:$PATH"
 # source files
+[ -f $HOME/.aliases ] && source $HOME/.aliases
 [ -f $HOME/.zprofile ] && source $HOME/.zprofile
 [ -f $HOME/.functions ] && source $HOME/.functions
 [ -f $HOME/.zshprompt ] && source $HOME/.zshprompt
-[ -f $HOME/.aliases ] && source $HOME/.aliases
+
 
 precmd() {
     psvar=()

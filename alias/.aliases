@@ -2,7 +2,7 @@
 alias ..="cd .."
 alias ll="ls -alh"
 alias av="source ./bin/activate"
-alias bug="brew update && brew upgrade && brew cu -a -y"
+#alias bug="brew update && brew upgrade && brew cu -a -y"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
