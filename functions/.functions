@@ -67,6 +67,8 @@ if [ -n "$ZSH_VERSION" ]; then
 fi
 # pip zsh completion end
 
+# macOS functions for fleet managed device with JamF Pro
+# verify if local user is Admin, otherwise start Self Service APP to manually gain temporary local Admin
 function amilocaladmin() {
     localsys="$(uname)";
     checkadmin="$(dseditgroup -o checkmember admin)";
@@ -87,8 +89,10 @@ function bug {
     localsys="$(uname)"
     if [[ $localsys == "Darwin" ]];
     then
-    echo "executing brew upgrade"
-    amilocaladmin brew update && brew upgrade && brew cu -a -y
+    echo "executing brew upgrade";
+    amilocaladmin brew update;
+    printf 'Press any key to continue...';read ans
+    brew upgrade && brew cu -a -y;
     fi
     unset localsys
 }
