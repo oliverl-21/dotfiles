@@ -78,6 +78,8 @@ function amilocaladmin() {
     then
         echo "not an Admin, Starting Self Service APP";
         /usr/bin/open "/Applications/Self Service.app";
+    else
+        echo "command not required"
     fi
     unset checkadmin
 }
