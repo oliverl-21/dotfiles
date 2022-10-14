@@ -90,7 +90,7 @@ function bug {
     if [[ $localsys == "Darwin" ]];
     then
     echo "executing brew upgrade";
-    amilocaladmin brew update;
+    amilocaladmin brew update && brew cu;
     printf 'Press any key to continue...';read ans
     brew upgrade && brew cu -a -y;
     fi
