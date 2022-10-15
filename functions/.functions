@@ -98,7 +98,7 @@ function bug {
         printf 'Press any key to continue...';read ans
         brew upgrade && brew cu -a -f -y;
     else
-        echo "you are not on a mac"
+        echo "you are not on a macOS"
     fi
     unset localsys
 }
