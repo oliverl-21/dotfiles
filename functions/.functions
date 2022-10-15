@@ -92,10 +92,12 @@ function bug {
     localsys="$(uname)"
     if [[ $localsys == "Darwin" ]];
     then
-    echo "executing brew upgrade";
-    amilocaladmin brew update && brew cu -f;
-    printf 'Press any key to continue...';read ans
-    brew upgrade && brew cu -a -f -y;
+        echo "executing brew upgrade";
+        amilocaladmin brew update && brew cu -f;
+        printf 'Press any key to continue...';read ans
+        brew upgrade && brew cu -a -f -y;
+    else
+        echo "you are not on a mac"
     fi
     unset localsys
 }
