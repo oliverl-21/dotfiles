@@ -84,6 +84,7 @@ function amilocaladmin() {
         echo "command not required"
     fi
     unset checkadmin
+    unset localsys
 }
 # homebrew update on macOS including brew cu
 # https://github.com/buo/homebrew-cask-upgrade
