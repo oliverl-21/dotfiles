@@ -71,7 +71,7 @@ fi
 # verify if local user is Admin, otherwise start Self Service APP to manually gain temporary local Admin
 function amilocaladmin() {
     localsys="$(uname)";
-    checkadmin="$(dseditgroup -o checkmember admin)";
+    [ -d dseditgroup ] && checkadmin="$(dseditgroup -o checkmember admin)";
     if [[ $localsys == "Darwin" ]] && command -v dseditgroup &> /dev/null && [[ $checkadmin =~ "yes" ]]; 
     then
         echo "You are already an Localadmin";
