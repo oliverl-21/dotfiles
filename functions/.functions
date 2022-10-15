@@ -72,7 +72,7 @@ fi
 function amilocaladmin() {
     localsys="$(uname)";
     checkadmin="$(dseditgroup -o checkmember admin)";
-    if [[ $localsys == "Darwin" && $checkadmin =~ "yes" ]]; 
+    if [[ $localsys == "Darwin" ]] && command -v dseditgroup &> /dev/null && [[ $checkadmin =~ "yes" ]]; 
     then
         echo "You are already an Localadmin";
         "$@";
