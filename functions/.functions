@@ -85,14 +85,17 @@ function amilocaladmin() {
     fi
     unset checkadmin
 }
+# homebrew update on macOS including brew cu
+# https://github.com/buo/homebrew-cask-upgrade
+#
 function bug {
     localsys="$(uname)"
     if [[ $localsys == "Darwin" ]];
     then
     echo "executing brew upgrade";
-    amilocaladmin brew update && brew cu;
+    amilocaladmin brew update && brew cu -f;
     printf 'Press any key to continue...';read ans
-    brew upgrade && brew cu -a -y;
+    brew upgrade && brew cu -a -f -y;
     fi
     unset localsys
 }
