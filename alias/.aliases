@@ -6,6 +6,8 @@ alias av="source ./bin/activate"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
+# Ansible Aliases
+alias apl="ansible-playbook playbooks/$@"
 # Terraform Aliases
 alias tf='terraform'
 alias tfp='terraform plan'
