@@ -21,8 +21,8 @@ alias tfg='terraform graph'
 alias tfim='terraform import'
 alias tfin='terraform init'
 # docker
-alias dcp='docker-compose pull'
-alias dcu='docker-compose up -d --force-recreate'
+alias dcp='docker compose pull'
+alias dcu='docker compose up -d --force-recreate'
 # git
 alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
