@@ -28,7 +28,7 @@ if tput setaf 1 &> /dev/null; then
 	white=$(tput setaf 15);
 	yellow=$(tput setaf 136);
 else
-	bold='';
+	#bold='';
 	reset="\\e[0m";
 	# shellcheck disable=SC2034
 	black="\\e[1;30m";
