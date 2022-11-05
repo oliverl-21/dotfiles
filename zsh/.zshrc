@@ -34,7 +34,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:*' formats       '(%r %a%u%c%m)'
+zstyle ':vcs_info:*' formats       '( %r %a%u%c%m)'
 zstyle ':vcs_info:*' actionformats "(%s|${white}%a${rpscolor}) %12.12i %c%u %b%m"
 zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
