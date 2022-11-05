@@ -19,7 +19,7 @@ if tput setaf 1 &> /dev/null; then
 	# Solarized colors, taken from http://git.io/solarized-colors.
 	black=$(tput setaf 0);
 	blue=$(tput setaf 12);
-	cyan=$(tput setaf 14);
+	cyan=$(tput setaf 51);
 	green=$(tput setaf 2);
 	orange=$(tput setaf 166);
 	purple=$(tput setaf 125);
