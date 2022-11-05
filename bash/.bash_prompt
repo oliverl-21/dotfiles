@@ -59,6 +59,7 @@ if [ -n "$SSH_TTY" ]; then
 else
 	hostStyle="${cyan}";
 fi;
+unset hoststyle
 
 # Set the terminal title to the current working directory.
 PS1="\\[\\033]0;\\w\\007\\]";
