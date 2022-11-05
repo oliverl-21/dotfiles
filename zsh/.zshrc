@@ -34,5 +34,7 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 setopt PROMPT_SUBST ; PROMPT="┌──%F{blue}%n%f at %F{51}%m%f in %F{green}%1~%f"$'\n└─'"$ "
 
 # has to be last source
+# macOS
 [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Linux
 [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
