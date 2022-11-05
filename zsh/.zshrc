@@ -28,6 +28,8 @@ precmd() {
 }
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 #Completion
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
