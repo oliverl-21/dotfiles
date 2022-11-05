@@ -33,9 +33,8 @@ zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
 zstyle ':vcs_info:git:*' formats       '(%s in %r %m %u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%s|%m%a%u%c)'
-zstyle ':vcs_info:*' unstagedstr "*"
 zstyle ':vcs_info:bzr:*' use-simple true
-zstyle ':vcs_info:*' stagedstr "+"
+
 #Completion
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
