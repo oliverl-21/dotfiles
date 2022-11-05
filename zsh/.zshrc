@@ -133,13 +133,38 @@ function +vi-git-hook-begin() {
             hook_com[misc]+=":S${stash}"
         fi
     }
+
+
+function _update_vcs_info_msg() {
+    local -a messages
+    local prompt
+
+    LANG=en_US.UTF-8 vcs_info
+
+    if [[ -z ${vcs_info_msg_0_} ]]; then
+        # No prompt is shown if no information from vcs_info
+        prompt="$default_rprompt"
+    else
+        # If there are some information from vcs_info, 
+        # show $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_
+        [[ -n "$vcs_info_msg_0_" ]] && messages+=( "%F{green}${vcs_info_msg_0_}%f" )
+        [[ -n "$vcs_info_msg_1_" ]] && messages+=( "%F{yellow}${vcs_info_msg_1_}%f" )
+        [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
+
+        # concatenate them separated with space
+        prompt="${(j: :)messages} $default_rprompt"
+    fi
+
+    RPROMPT="$prompt%T"
+}
+
 #Completion
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Prompt
-RPROMPT="%F{red}%1v%f %T"
+#RPROMPT="%F{red}%1v%f %T"$_update_vcs_info_msg
 setopt PROMPT_SUBST ; PROMPT="┌──%F{blue}%n%f at %F{51}%m%f in %F{green}%1~%f"$'\n└─'"$ "
 
 # has to be last source
