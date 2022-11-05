@@ -23,22 +23,28 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 precmd() {
     psvar=()
-
     vcs_info
     [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
 }
+
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr ' *'
 zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
-zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+zstyle ':vcs_info:git:*' formats       '(%s in %r %m %u%c)'
+zstyle ':vcs_info:git:*' actionformats '(%s|%m%a%u%c)'
+zstyle ':vcs_info:*' unstagedstr "*"
+zstyle ':vcs_info:bzr:*' use-simple true
+zstyle ':vcs_info:*' stagedstr "+"
 #Completion
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Prompt
-setopt PROMPT_SUBST ; PROMPT="%F{blue}%n%f at %F{cyan}%m%f in %F{green}%1~%f"$' %F{red}%1v%f\n'"$ "
+RPROMPT="%F{red}%1v%f %T"
+setopt PROMPT_SUBST ; PROMPT="┌──%F{blue}%n%f at %F{51}%m%f in %F{green}%1~%f"$'\n└─'"$ "
+
 # has to be last source
 [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
