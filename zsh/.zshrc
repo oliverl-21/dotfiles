@@ -3,6 +3,7 @@ unset LSCOLORS
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+setopt HIST_IGNORE_ALL_DUPS
 # no escaping
 unsetopt nomatch
 # PATH
@@ -20,11 +21,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $HOME/.functions ] && source $HOME/.functions
 [ -f $HOME/.zshprompt ] && source $HOME/.zshprompt
 [ -f $HOME/.dotfiles/zsh/vcs_info.zsh ] && source $HOME/.dotfiles/zsh/vcs_info.zsh
+[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 precmd() {
     _update_vcs_info_msg
 }
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 #Completion
 autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
