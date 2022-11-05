@@ -22,9 +22,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 
 precmd() {
-    psvar=()
-    vcs_info
-    [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_ $vcs_info_msg_1_ $vcs_info_msg_2_"
+    _update_vcs_info_msg
 }
 
 autoload -Uz vcs_info
@@ -33,10 +31,10 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' check-for-staged-changes true
-zstyle ':vcs_info:*' unstagedstr ' *'
-zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:*' formats       '%r' '%c%u' '<!%a>'
-zstyle ':vcs_info:*' actionformats '%r' '%c%u' '<!%a>'
+zstyle ':vcs_info:*' unstagedstr '-'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' formats       '%r' '%c%u' '%m'
+zstyle ':vcs_info:*' actionformats '%r' '%c%u %m' '<!%a>'
 zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:git+set-message:*' hooks git-hook-begin git-untracked git-push-status git-nomerge-branch git-stash-count
 
@@ -164,7 +162,6 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Prompt
-#RPROMPT="%F{red}%1v%f %T"$_update_vcs_info_msg
 setopt PROMPT_SUBST ; PROMPT="┌──%F{blue}%n%f at %F{51}%m%f in %F{green}%1~%f"$'\n└─'"$ "
 
 # has to be last source
