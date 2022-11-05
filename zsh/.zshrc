@@ -29,13 +29,14 @@ precmd() {
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*:*' get-revision true
+zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' check-for-changes true
-#zstyle ':vcs_info:*' unstagedstr ' *'
-#zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:git:*' formats       '(%r| %m%a %u%c)'
-zstyle ':vcs_info:git:*' actionformats '(|%m%a%u%c)'
-zstyle ':vcs_info:bzr:*' use-simple true
+zstyle ':vcs_info:*' check-for-staged-changes true
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+zstyle ':vcs_info:*' formats       '(%r|%a%u%c)'
+zstyle ':vcs_info:*' actionformats '(%a)'
+zstyle ':vcs_info:*' use-simple true
 
 #Completion
 autoload -U +X bashcompinit && bashcompinit
