@@ -26,7 +26,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 precmd() {
     _update_vcs_info_msg
 }
-if [ -n "$SSH_CLIENT" ]; then
+if [[ -n "$SSH_CLIENT" ]]; then
 	hostStyle="%B%m%b";
 else
 	hostStyle="%m";
