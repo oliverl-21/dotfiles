@@ -26,6 +26,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 precmd() {
     _update_vcs_info_msg
 }
+if [ -n "$SSH_CLIENT" ]; then
+	hostStyle="%B%m%b";
+else
+	hostStyle="%m";
+fi;
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -36,7 +41,7 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Prompt
-setopt PROMPT_SUBST ; PROMPT="%F{245}┌──%f%F{blue}%n%f%F{245} at %f%F{51}%m%f%F{245} in %f%F{green}%1~%f"$'\n%F{245}└─%f'"%F{245}$ %f"
+setopt PROMPT_SUBST ; PROMPT="%F{245}┌──%f%F{blue}%n%f%F{245} at %f%F{51}${hostStyle}%f%F{245} in %f%F{green}%1~%f"$'\n%F{245}└─%f'"%F{245}$ %f"
 
 # has to be last source
 # macOS
