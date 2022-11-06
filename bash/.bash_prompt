@@ -47,19 +47,22 @@ fi;
 
 
 # Highlight the user name when logged in as root.
+function _userStyle {
 if [[ "${USER}" == "root" ]]; then
 	userStyle="${red}";
 else
 	userStyle="${blue}";
 fi;
-
+}
 # Highlight the hostname when connected via SSH.
+function _hostStyle {
 if [ -n "$SSH_CLIENT" ]; then
 	hostStyle="${bold}${cyan}";
 else
 	hostStyle="${cyan}";
 fi;
-
+}
+PROMPT_COMMAND="_hostStyle;_userStyle"
 # Set the terminal title to the current working directory.
 PS1="\\[\\033]0;\\w\\007\\]";
 PS1+="\\[${bold}\\]\\n"; # newline
