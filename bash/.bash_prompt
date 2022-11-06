@@ -62,7 +62,7 @@ else
 	hostStyle="${hostStyle}";
 fi;
 }
-PROMPT_COMMAND="_hostStyle"
+export PROMPT_COMMAND="_hostStyle"
 # Set the terminal title to the current working directory.
 PS1="\\[\\033]0;\\w\\007\\]";
 PS1+="\\[${bold}\\]\\n"; # newline
