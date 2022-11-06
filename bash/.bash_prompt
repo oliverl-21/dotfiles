@@ -54,7 +54,6 @@ else
 fi;
 
 # Highlight the hostname when connected via SSH.
-hostStyle="${cyan}"
 function _hostStyle {
 if [ -n "$SSH_CLIENT" ]; then
 	hostStyle="${bold}${cyan}";
