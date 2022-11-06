@@ -27,7 +27,7 @@ precmd() {
     _update_vcs_info_msg
 }
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bold,underline"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 #Completion
