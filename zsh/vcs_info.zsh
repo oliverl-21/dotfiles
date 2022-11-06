@@ -127,5 +127,5 @@ function _update_vcs_info_msg() {
         prompt="${(j: :)messages} $default_rprompt"
     fi
 
-    RPROMPT="$prompt%F{240}%T%f"
+    RPROMPT="$prompt%F{245}%T%f"
 }
