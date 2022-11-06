@@ -54,14 +54,12 @@ else
 fi;
 
 # Highlight the hostname when connected via SSH.
-function _hostStyle {
 if [ -n "$SSH_CLIENT" ]; then
 	hostStyle="${bold}${cyan}";
 else
 	hostStyle="${hostStyle}";
 fi;
-}
-export PROMPT_COMMAND="_hostStyle"
+
 # Set the terminal title to the current working directory.
 PS1="\\[\\033]0;\\w\\007\\]";
 PS1+="\\[${bold}\\]\\n"; # newline
