@@ -54,11 +54,12 @@ else
 fi;
 
 # Highlight the hostname when connected via SSH.
+hostStyle="${cyan}"
 function _hostStyle {
 if [ -n "$SSH_CLIENT" ]; then
 	hostStyle="${bold}${cyan}";
 else
-	hostStyle="${cyan}";
+	hostStyle="${hostStyle}";
 fi;
 }
 PROMPT_COMMAND="_hostStyle"
