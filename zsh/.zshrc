@@ -6,6 +6,15 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 setopt HIST_IGNORE_ALL_DUPS
 # no escaping
 unsetopt nomatch
+# deactivate venv prompt mangling
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+function virtualenv_info { 
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+		vpr="(v)";
+	else
+		vpr="";
+fi;
+}
 # PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # append linux PATH
@@ -24,7 +33,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 precmd() {
-    _update_vcs_info_msg
+    _update_vcs_info_msg;
+	virtualenv_info
 }
 if [[ -n "$SSH_CLIENT" ]]; then
 	hostStyle="%B%m%b";
