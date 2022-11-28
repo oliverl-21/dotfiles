@@ -79,7 +79,6 @@ function amilocaladmin() {
     elif [ -d /Applications/Self\ Service.app ];
     then
         echo "not an Admin, Starting Self Service APP";
-        echo $checkadmin
         /usr/bin/open "/Applications/Self Service.app";
     else
         echo "command not required"
