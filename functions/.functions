@@ -71,19 +71,19 @@ fi
 # verify if local user is Admin, otherwise start Self Service APP to manually gain temporary local Admin
 function amilocaladmin() {
     localsys="$(uname)";
-    [ -d dseditgroup ] && checkadmin="$(dseditgroup -o checkmember admin)";
-    if [[ $localsys == "Darwin" && $checkadmin =~ "yes" ]]; 
+    [ -e /usr/sbin/dseditgroup ] && checkadmin="$(dseditgroup -o checkmember admin)";
+    if [[ $localsys == "Darwin" && $checkadmin == *"yes"* ]]; 
     then
         echo "You are already an Localadmin";
         "$@";
     elif [ -d /Applications/Self\ Service.app ];
     then
         echo "not an Admin, Starting Self Service APP";
+        echo $checkadmin
         /usr/bin/open "/Applications/Self Service.app";
     else
         echo "command not required"
     fi
-    unset checkadmin
     unset localsys
 }
 # homebrew update on macOS including brew cu
@@ -98,7 +98,7 @@ function bug {
         printf 'Press any key to continue...';read ans
         brew upgrade && brew cu -a -f -y;
     else
-        echo "you are not on a macOS"
+        echo "you are not on macOS"
     fi
     unset localsys
 }
