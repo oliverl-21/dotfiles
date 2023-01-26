@@ -1,6 +1,7 @@
 # Aliases
 alias ..="cd .."
-alias ll="ls -alh"
+alias ll="exa -alh --git --icons"
+alias ls="exa --git --icons"
 alias av="source ./bin/activate"
 #alias bug="brew update && brew upgrade && brew cu -a -y"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
