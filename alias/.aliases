@@ -29,7 +29,11 @@ alias dcu='docker compose up -d --force-recreate'
 alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
 alias gitp='git push'
-
+# dig
+alias dig='dig -t ANY'
+alias dig6="dig -6"
+# nslookup
+alias nslookup='nslookup -query=ANY'
 #bash dir Colors
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
