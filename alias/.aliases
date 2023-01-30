@@ -3,11 +3,11 @@ alias ..="cd .."
 alias ll="exa -alh --git --icons"
 alias ls="exa --git --icons"
 alias av="source ./bin/activate"
-if (( $+commands[bat] )); then
+if type -p "bat" > /dev/null 2>&1; then
     alias cat="bat"
-    elif (( $+commands[batcat] )); then
+    elif type -p "batcat"> /dev/null 2>&1; then
     alias cat='batcat'
-    fi
+fi
 #alias bug="brew update && brew upgrade && brew cu -a -y"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
