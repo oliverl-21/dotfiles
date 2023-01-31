@@ -1,8 +1,11 @@
+############################################################
 # Aliases
+############################################################
 alias ..="cd .."
 alias ll="exa -alh --git --icons"
 alias ls="exa --git --icons"
 alias av="source ./bin/activate"
+# cat replacement with bat
 if type -p "bat" > /dev/null 2>&1; then
     alias cat="bat"
     elif type -p "batcat"> /dev/null 2>&1; then
