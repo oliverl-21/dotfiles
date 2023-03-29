@@ -41,6 +41,7 @@ alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
 alias gitp='git push'
 # dig
+alias dig="dig -t any"
 alias dig6="dig -6"
 #bash dir Colors
 # enable color support of ls and also add handy aliases
