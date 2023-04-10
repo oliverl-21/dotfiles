@@ -15,7 +15,7 @@ if type -p "bat" > /dev/null 2>&1; then
     elif type -p "batcat"> /dev/null 2>&1; then
     alias cat='batcat'
 fi
-#alias bug="brew update && brew upgrade && brew cu -a -y"
+
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"

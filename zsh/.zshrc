@@ -31,18 +31,15 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $HOME/.functions ] && source $HOME/.functions
 [ -f $HOME/.zshprompt ] && source $HOME/.zshprompt
 [ -f $HOME/.dotfiles/zsh/vcs_info.zsh ] && source $HOME/.dotfiles/zsh/vcs_info.zsh
-[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf
+# ZSH 
+[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 precmd() {
     _update_vcs_info_msg;
 	virtualenv_info
 }
-if [[ -n "$SSH_CLIENT" ]]; then
-	hostStyle="%B%m%b";
-else
-	hostStyle="%m";
-fi;
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -60,3 +57,4 @@ setopt PROMPT_SUBST ; PROMPT="%F{245}┌──  %f%F{blue}%n%f%F{245} at %f%F
 [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Linux
 [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
