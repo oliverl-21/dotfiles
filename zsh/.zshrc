@@ -40,6 +40,11 @@ precmd() {
     _update_vcs_info_msg;
 	virtualenv_info
 }
+if [[ -n "$SSH_CLIENT" ]]; then
+	hostStyle="%B%m%b";
+else
+	hostStyle="%m";
+fi;
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
