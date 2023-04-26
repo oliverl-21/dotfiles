@@ -9,7 +9,7 @@ Ansible could be used for this
 ```yml
 # playbook.yml
 ---
-- hosts: local
+- hosts: localhost
 
   tasks:
   - name: setup dotfiles
@@ -83,5 +83,18 @@ Ansible could be used for this
     state: link
     force: true
   when: ansible_facts.user_shell == "/bin/zsh"
+
+# tmux setup
+- name: Create tmux dir
+  ansible.builtin.file:
+    path: ~/.config/tmux
+    state: directory
+
+- name: Link tmux
+  ansible.builtin.file:
+    src: ~/.dotfiles/tmux/tmux.conf
+    dest: ~/.config/tmux/tmux.conf
+    state: link
+    force: true
 
 ```
