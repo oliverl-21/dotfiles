@@ -1,4 +1,5 @@
 # set to your desired location
+export ZDOTDIR=$HOME/.config/zsh
 export FIRMWARE_PATH="~/"
 export ANSIBLE_PATH="~/"
 export TERRAFORM_PATH="~/"
