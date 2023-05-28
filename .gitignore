@@ -4,3 +4,4 @@
 # ZSH
 **/.zcompdump
 **/.zsh_history
+.zshenv
