@@ -43,6 +43,8 @@ alias gitp='git push'
 # dig
 alias dig6="dig -6"
 alias nslookup6="nslookup -query=AAAA"
+# TMUX
+alias tma="tmux attach || tmux"
 #bash dir Colors
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
