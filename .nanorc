@@ -1,13 +1,11 @@
 # settings
 set linenumbers
 set autoindent
-set smooth
 set tabsize 2
 set tabstospaces
 set nohelp
 set matchbrackets "(<[{)>]}"
 set brackets ""')>]}"
-set morespace
 unset emptyline
 set indicator
 
