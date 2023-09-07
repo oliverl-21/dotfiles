@@ -2,3 +2,4 @@
 	path = nano
 	url = https://github.com/serialhex/nano-highlight.git
 	ignore = all
+	branch = master
