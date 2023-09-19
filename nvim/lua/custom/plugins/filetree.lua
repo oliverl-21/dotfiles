@@ -13,3 +13,4 @@ return {
     require('neo-tree').setup {}
   end,
 }
+
