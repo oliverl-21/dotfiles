@@ -6,3 +6,9 @@
 **/.zsh_history
 .zshenv
 **/.zsh_sessions
+
+# NVIM
+tags
+test.sh
+.luarc.json
+lazy-lock.json
