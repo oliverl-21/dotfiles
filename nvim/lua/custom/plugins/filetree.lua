@@ -9,8 +9,12 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
-  config = function ()
-    require('neo-tree').setup {}
+  config = function()
+    require('neo-tree').setup {
+      source_selector = {
+        winbar = true,
+        statusline = true
+      }
+    }
   end,
 }
-
