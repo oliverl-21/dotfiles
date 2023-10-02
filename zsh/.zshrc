@@ -50,10 +50,12 @@ fi;
 
 
 #Completion
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit; compinit
+autoload -Uz compinit bashcompinit
+compinit && bashcompinit
+
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 # Prompt
 setopt PROMPT_SUBST ; PROMPT="%F{245}┌── ${OS_LOGO} %f%F{blue}%n%f%F{245} at %f%F{51}${hostStyle}%f%F{245} in %f%F{green}%1~%f"$'\n%F{245}└─%f'"%F{245}$ %f"
 
