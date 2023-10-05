@@ -32,7 +32,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $XDG_CONFIG_HOME/zsh/.zshprompt ] && source $XDG_CONFIG_HOME/zsh/.zshprompt
 [ -f $HOME/.dotfiles/zsh/vcs_info.zsh ] && source $HOME/.dotfiles/zsh/vcs_info.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf
-
+[ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source /$XDG_CONFIG_HOME/fzf/.fzf.zsh
+[ -f /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh ] && source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
 # ZSH Autosuggest
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"

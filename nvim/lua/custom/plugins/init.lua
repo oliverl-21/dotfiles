@@ -3,10 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 vim.wo.relativenumber = true
-return {
-    vim.keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>'),
-
-}
 
 local highlight = {
     "RainbowRed",
@@ -31,4 +27,8 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
 
-require("ibl").setup { indent = { highlight = highlight } }
+return {
+    vim.keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>'),
+
+    require("ibl").setup { indent = { highlight = highlight } },
+}
