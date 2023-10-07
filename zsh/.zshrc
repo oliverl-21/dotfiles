@@ -24,6 +24,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
 [ -d $HOME/Library/Python/3.9/bin ] && export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 [ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/:$PATH"
+[ -d /opt/homebrew/share/zsh/site-functions ] && export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
 # source files
 [ -f $HOME/.env ] && source $HOME/.env
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
@@ -56,7 +57,6 @@ compinit && bashcompinit
 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 # Prompt
 setopt PROMPT_SUBST ; PROMPT="%F{245}┌── ${OS_LOGO} %f%F{blue}%n%f%F{245} at %f%F{51}${hostStyle}%f%F{245} in %f%F{green}%1~%f"$'\n%F{245}└─%f'"%F{245}$ %f"
 
