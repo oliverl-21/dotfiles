@@ -31,7 +31,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $XDG_CONFIG_HOME/zsh/.zprofile ] && source $XDG_CONFIG_HOME/zsh/.zprofile
 [ -f $XDG_CONFIG_HOME/.functions ] && source $XDG_CONFIG_HOME/.functions
 [ -f $XDG_CONFIG_HOME/zsh/.zshprompt ] && source $XDG_CONFIG_HOME/zsh/.zshprompt
-[ -f $HOME/.dotfiles/zsh/vcs_info.zsh ] && source $HOME/.dotfiles/zsh/vcs_info.zsh
+[ -f $XDG_CONFIG_HOME/zsh/vcs_info.zsh ] && source $XDG_CONFIG_HOME/zsh/vcs_info.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source /$XDG_CONFIG_HOME/fzf/.fzf.zsh
 [ -f /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh ] && source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
