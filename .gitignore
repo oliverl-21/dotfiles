@@ -3,6 +3,7 @@
 
 # ZSH
 **/.zcompdump
+**/.zcompcache/
 **/.zsh_history
 .zshenv
 **/.zsh_sessions
