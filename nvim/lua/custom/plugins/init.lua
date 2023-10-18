@@ -3,6 +3,9 @@
 -- See the kickstart.nvim README for more information
 vim.wo.relativenumber = true
 vim.keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>')
+vim.api.nvim_create_user_command('W', function()
+    vim.cmd("w !sudo tee % > /dev/null | :edit!")
+end, {})
 return {
     {
         "lukas-reineke/indent-blankline.nvim",
