@@ -96,6 +96,7 @@ function bug {
         amilocaladmin brew update && brew cu -f;
         printf 'Press any key to continue...';read ans
         brew upgrade && brew cu -a -f -y;
+        brew cleanup;
     else
         echo "you are not on macOS"
     fi
