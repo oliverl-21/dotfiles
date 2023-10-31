@@ -100,7 +100,6 @@ return {
     mason_lspconfig.setup {
       ensure_installed = vim.tbl_keys(servers),
     }
-
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- used to enable autocompletion (assign to every lsp server config)
@@ -141,6 +140,16 @@ return {
           shellcheckPath = 'shellcheck',
         },
       },
+    }
+    lspconfig['eslint'].setup {
+      capabilities = capabilities,
+      filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'svelte', 'astro' },
+      settings = {},
+      on_attach = on_attach,
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = bufnr,
+        command = 'EslintFixAll',
+      }),
     }
   end,
 }
