@@ -78,6 +78,13 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
       terraformls = {},
+      eslint = {
+        eslint = {
+          options = {
+            overrideConfigFile = '~/.config/nvim/.eslintrc.json',
+          },
+        },
+      },
       ansiblels = {
         filetypes = { 'yaml', 'yaml.ansible' },
         Ansible = {
@@ -140,16 +147,6 @@ return {
           shellcheckPath = 'shellcheck',
         },
       },
-    }
-    lspconfig['eslint'].setup {
-      capabilities = capabilities,
-      filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx', 'vue', 'svelte', 'astro' },
-      settings = {},
-      on_attach = on_attach,
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        buffer = bufnr,
-        command = 'EslintFixAll',
-      }),
     }
   end,
 }
