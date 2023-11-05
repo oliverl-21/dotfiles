@@ -21,7 +21,7 @@ opt.termguicolors = true
 opt.signcolumn = 'yes'
 opt.cmdheight = 1
 opt.scrolloff = 10
-opt.completeopt = 'menuone,noinsert,noselect'
+opt.completeopt = 'menuone,noselect'
 
 -- Behaviour
 opt.hidden = true
@@ -32,3 +32,5 @@ opt.backspace = 'indent,eol,start'
 opt.autochdir = false
 opt.clipboard:append 'unnamedplus'
 opt.mouse = 'a'
+opt.updatetime = 250
+opt.timeoutlen = 300

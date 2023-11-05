@@ -23,7 +23,7 @@ return {
         'bash',
       },
       sync_install = true,
-      ignore_install = { 'javascript' },
+      ignore_install = {},
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,

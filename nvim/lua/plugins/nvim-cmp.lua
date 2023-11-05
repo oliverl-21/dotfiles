@@ -1,9 +1,11 @@
 return {
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
+    'hrsh7th/cmp-nvim-lsp', -- lsp source
     'hrsh7th/cmp-buffer', -- source for text in buffer
     'hrsh7th/cmp-path', -- source for file system paths
+    'hrsh7th/cmp-nvim-lsp-signature-help', -- function signatures
     'L3MON4D3/LuaSnip', -- snippet engine
     'saadparwaiz1/cmp_luasnip', -- for autocompletion
     'rafamadriz/friendly-snippets', -- useful snippets
@@ -11,18 +13,15 @@ return {
   },
   config = function()
     local cmp = require 'cmp'
-
     local luasnip = require 'luasnip'
-    luasnip.config.setup {}
-
     local lspkind = require 'lspkind'
-
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require('luasnip.loaders.from_vscode').lazy_load()
+    luasnip.config.setup {}
 
     cmp.setup {
       completion = {
-        completeopt = 'menu,menuone,preview,noselect',
+        completopt = 'menuone,preview,noselect',
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -62,6 +61,7 @@ return {
       -- sources for autocompletion
       sources = {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
         { name = 'luasnip' }, -- snippets
         { name = 'buffer' }, -- text within current buffer
         { name = 'path' }, -- file system paths
@@ -77,3 +77,5 @@ return {
     }
   end,
 }
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et

@@ -43,6 +43,7 @@ alias dcu='docker compose up -d --force-recreate'
 alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
 alias gitp='git push'
+alias gits='git status'
 # dig
 alias dig6="dig -6"
 alias nslookup6="nslookup -query=AAAA"
