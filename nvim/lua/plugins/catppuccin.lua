@@ -44,7 +44,7 @@ return {
         noice = true,
         indent_blankline = {
           enabled = true,
-          scope_color = 'flamingo', -- catppuccin color (eg. `lavender`) Default: text
+          scope_color = 'lavender', -- catppuccin color (eg. `lavender`) Default: text
           colored_indent_levels = true,
         },
         native_lsp = {

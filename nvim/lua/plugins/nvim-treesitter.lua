@@ -21,13 +21,16 @@ return {
         'hcl',
         'terraform',
         'bash',
+        'markdown',
+        'markdown_inline',
+        'regex',
       },
       sync_install = true,
       ignore_install = {},
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
-      highlight = { enable = true },
+      highlight = { enable = true, additional_vim_regex_highlighting = false },
       indent = { enable = true },
       autotag = { enable = true },
       incremental_selection = {
