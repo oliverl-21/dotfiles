@@ -88,13 +88,6 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
       terraformls = {},
-      eslint = {
-        eslint = {
-          options = {
-            overrideConfigFile = '~/.config/nvim/.eslintrc.json',
-          },
-        },
-      },
       ansiblels = {
         filetypes = { 'yaml', 'yaml.ansible' },
         Ansible = {

@@ -7,7 +7,7 @@ return {
 
     conform.setup {
       formatters_by_ft = {
-        javascript = { 'eslint' },
+        javascript = { 'prettier' },
         markdown = { 'prettier' },
         yaml = { 'prettier' },
         json = { 'prettier' },
