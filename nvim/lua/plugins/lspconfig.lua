@@ -88,6 +88,7 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
       terraformls = {},
+      tsserver = { filetypes = { 'nofile' }, autostart = false },
       ansiblels = {
         filetypes = { 'yaml', 'yaml.ansible' },
         Ansible = {
