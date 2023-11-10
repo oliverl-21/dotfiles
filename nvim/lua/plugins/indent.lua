@@ -36,14 +36,15 @@ return {
         highlight = highlight,
         char = ' ',
       },
+      whitespace = {
+        highlight = highlight,
+        remove_blankline_trail = false,
+      },
       scope = {
         enabled = true,
         highlight = highlight,
-        show_exact_scope = true,
+        show_exact_scope = false,
         char = '▏',
-        exclude = {
-          node_type = { lua = { 'block', 'chunk' } },
-        },
       },
       exclude = {
         filetypes = {
