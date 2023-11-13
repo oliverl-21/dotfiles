@@ -7,6 +7,7 @@ TCPKeepAlive yes
 StrictHostKeyChecking no
 VisualHostKey no
 UpdateHostKeys yes
+IgnoreUnknown useKeychain
 KexAlgorithms +diffie-hellman-group14-sha1
 ciphers +aes256-cbc
 
