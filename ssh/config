@@ -1,0 +1,27 @@
+##########################################
+# General Config
+##########################################
+
+Compression yes
+TCPKeepAlive yes
+StrictHostKeyChecking no
+VisualHostKey no
+UpdateHostKeys yes
+KexAlgorithms +diffie-hellman-group14-sha1
+ciphers +aes256-cbc
+
+##########################################
+# Default System
+##########################################
+
+Host *
+    useKeychain yes
+    ServerAliveInterval 120
+    ServerAliveCountMax 2
+
+##########################################
+# Load Hosts folder
+##########################################
+
+include hosts/*.conf
+
