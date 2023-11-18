@@ -105,6 +105,12 @@ for file in ~/.{bash_prompt,env,aliases,functions,path,dockerfunc,extra,exports,
 		# shellcheck source=/dev/null
 		source "$file"
 	fi
+for file in ~/.config/.{aliases,functions}; do
+	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+		# shellcheck source=/dev/null
+		source "$file"
+	fi
+
 done
 unset file
 
