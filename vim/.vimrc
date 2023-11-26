@@ -1,9 +1,23 @@
 set directory=$XDG_CACHE_HOME/vim/swap,~/,/tmp
 set backupdir=$XDG_CACHE_HOME/vim/backup,~/,/tmp
 set undodir=$XDG_CACHE_HOME/vim/undo,~/,/tmp
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '$XDG_CONFIG_HOME/vim'
+
+" Install vim-plug if not found
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | PlugInstall --sync | source $MYVIMRC | endif
+
+call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
+Plug 'tpope/vim-sensible'
+call plug#end()
 
 syntax on               " enable syntax highlighting
 set cursorline          " highlight the current line
