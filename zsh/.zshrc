@@ -28,8 +28,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -d /opt/homebrew/share/zsh/site-functions ] && export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
 # source files
 [ -f $HOME/.env ] && source $HOME/.env
-[ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 [ -f $XDG_CONFIG_HOME/.exports ] && source $XDG_CONFIG_HOME/.exports
+[ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 [ -f $XDG_CONFIG_HOME/zsh/.zprofile ] && source $XDG_CONFIG_HOME/zsh/.zprofile
 [ -f $XDG_CONFIG_HOME/.functions ] && source $XDG_CONFIG_HOME/.functions
 [ -f $XDG_CONFIG_HOME/zsh/.zshprompt ] && source $XDG_CONFIG_HOME/zsh/.zshprompt
