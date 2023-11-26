@@ -100,14 +100,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-for file in ~/.{bash_prompt,env,path,dockerfunc,extra,exports,profile}; do
+for file in ~/.{bash_prompt,env,path,profile}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
 	fi
 done
 unset file
-for file in ~/.config/.{aliases,functions}; do
+for file in ~/.config/.{aliases,functions,exports}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
