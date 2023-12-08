@@ -107,7 +107,7 @@ for file in ~/.{bash_prompt,env,path,profile}; do
 	fi
 done
 unset file
-for file in ~/.config/.{aliases,functions,exports}; do
+for file in ~/.config/.{exports,aliases,functions}; do
 	if [[ -r "$file" ]] && [[ -f "$file" ]]; then
 		# shellcheck source=/dev/null
 		source "$file"
