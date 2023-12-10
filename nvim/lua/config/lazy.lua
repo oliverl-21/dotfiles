@@ -16,13 +16,13 @@ require 'config.options'
 
 require('lazy').setup {
   spec = {
-    { "LazyVim/LazyVim"},
+    { 'LazyVim/LazyVim' },
     { import = 'plugins' },
   },
   defaults = {
     lazy = true,
   },
-  install = { colorscheme = { 'catppuccin' } },
+  install = { colorscheme = { 'tokyonight' } },
   checker = { enabled = true },
   performance = {
     rtp = {

@@ -25,7 +25,7 @@ return {
       options = {
         globalstatus = true,
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'tokyonight',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'starter' } },
