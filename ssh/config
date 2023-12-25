@@ -8,7 +8,7 @@ include hosts/*.conf
 # General Config
 ##########################################
 
-Compression yes
+Compression no
 TCPKeepAlive yes
 StrictHostKeyChecking no
 VisualHostKey no
