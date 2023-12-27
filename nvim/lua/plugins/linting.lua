@@ -10,7 +10,7 @@ return {
     lint.linters_by_ft = {
       python = { 'pylint' },
       bash = { 'shellcheck' },
-      ansible = { 'ansible-lint' },
+      -- ansible = { 'ansible-lint' },
       terraform = { 'tflint' },
     }
     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

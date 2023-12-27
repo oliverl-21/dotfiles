@@ -90,10 +90,15 @@ return {
       terraformls = {},
       tsserver = { filetypes = { 'nofile' }, autostart = false },
       ansiblels = {
-        filetypes = { 'yaml', 'yaml.ansible' },
-        Ansible = {
+        filetypes = { 'yaml.ansible' },
+        single_file_support = false,
+        ansible = {
           python = {
             interpreterPath = '/Users/oliver/Documents/code/ansible/bin/python3',
+          },
+          completion = {
+            provideRedirectModules = true,
+            provideModuleOptionAliases = true,
           },
         },
       },
