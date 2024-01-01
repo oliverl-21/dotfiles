@@ -24,6 +24,10 @@ if type -p "bat" > /dev/null 2>&1; then
     alias cat='batcat'
 fi
 
+alias k="kubectl"
+
+alias sudo="sudo -E"
+
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
@@ -41,6 +45,7 @@ alias tff='terraform fmt'
 alias tfg='terraform graph'
 alias tfim='terraform import'
 alias tfin='terraform init'
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # docker
 alias dcp='docker compose pull'
 alias dcu='docker compose up -d --force-recreate'
@@ -50,7 +55,8 @@ alias gitac='git commit -a -m'
 alias gitp='git push'
 alias gits='git status'
 # dig
-alias dig6="dig -6"
+alias dig="dig ANY"
+alias dig6="dig -6 ANY"
 alias nslookup6="nslookup -query=AAAA"
 # TMUX
 alias tma="tmux attach || tmux"

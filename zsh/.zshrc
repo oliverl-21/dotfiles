@@ -24,8 +24,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # append mac PATH
 [ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
 [ -d $HOME/Library/Python/3.9/bin ] && export PATH="$HOME/Library/Python/3.9/bin:$PATH"
-[ -d /opt/homebrew ] && export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/:$PATH"
-[ -d /opt/homebrew/share/zsh/site-functions ] && export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
+[ -f /opt/homebrew/bin/brew ] &&  eval $(/opt/homebrew/bin/brew shellenv)
+[ -d $HOMEBREW_PREFIX/share/zsh/site-functions ] && FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+autoload -Uz +X compinit && compinit
+autoload -Uz +X bashcompinit && bashcompinit
+# setopt complete_aliases
+
+
 # source files
 [ -f $HOME/.env ] && source $HOME/.env
 [ -f $XDG_CONFIG_HOME/.exports ] && source $XDG_CONFIG_HOME/.exports
@@ -36,7 +41,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $XDG_CONFIG_HOME/zsh/vcs_info.zsh ] && source $XDG_CONFIG_HOME/zsh/vcs_info.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source /$XDG_CONFIG_HOME/fzf/.fzf.zsh
-[ -f /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh ] && source /opt/homebrew/opt/kube-ps1/share/kube-ps1.sh
 # ZSH Autosuggest
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
@@ -54,11 +58,7 @@ fi;
 
 
 #Completion
-autoload -Uz compinit bashcompinit
-compinit && bashcompinit
-
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # Prompt
 setopt PROMPT_SUBST ; PROMPT="%F{245}┌── ${OS_LOGO} %f%F{blue}%n%f%F{245} at %f%F{51}${hostStyle}%f%F{245} in %f%F{green}%1~%f"$'\n%F{245}└─%f'"%F{245}$ %f"
 
