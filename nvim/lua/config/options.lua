@@ -22,6 +22,7 @@ opt.signcolumn = 'yes'
 opt.cmdheight = 1
 opt.scrolloff = 10
 opt.completeopt = 'menuone,noselect'
+opt.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 -- Behaviour
 opt.hidden = true

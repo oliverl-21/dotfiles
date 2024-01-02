@@ -19,6 +19,7 @@ return {
     -- import lspconfig plugin
     local lspconfig = require 'lspconfig'
     local mason_lspconfig = require 'mason-lspconfig'
+    local navic = require 'nvim-navic'
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require 'cmp_nvim_lsp'
@@ -32,6 +33,9 @@ return {
       --
       -- In this case, we create a function that lets us more easily define mappings specific
       -- for LSP related items. It sets the mode, buffer and description for us each time.
+      if _.server_capabilities.documentSymbolProvider then
+        navic.attach(_, bufnr)
+      end
       local nmap = function(keys, func, desc)
         if desc then
           desc = 'LSP: ' .. desc
