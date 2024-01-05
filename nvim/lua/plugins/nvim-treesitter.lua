@@ -21,6 +21,7 @@ return {
         'hcl',
         'terraform',
         'bash',
+        'bash',
         'markdown',
         'markdown_inline',
         'regex',

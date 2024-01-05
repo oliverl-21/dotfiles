@@ -27,12 +27,6 @@ return {
     -- [[ Configure LSP ]]
     --  This function gets run when an LSP connects to a particular buffer.
     local on_attach = function(_, bufnr)
-      -- NOTE: Remember that lua is a real programming language, and as such it is possible
-      -- to define small helper and utility functions so you don't have to repeat yourself
-      -- many times.
-      --
-      -- In this case, we create a function that lets us more easily define mappings specific
-      -- for LSP related items. It sets the mode, buffer and description for us each time.
       if _.server_capabilities.documentSymbolProvider then
         navic.attach(_, bufnr)
       end
@@ -77,22 +71,19 @@ return {
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
     -- document existing key chains
-    require('which-key').register {
-      ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-      ['<leader>h'] = { name = 'More git', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-      ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-    }
 
     local servers = {
       pyright = {},
+      jsonls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
       terraformls = {},
       tsserver = { filetypes = { 'nofile' }, autostart = false },
+      yamlls = {
+        yaml = {
+          schemas = { ['https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/master-standalone-strict/all.json'] = '/*.k8s.yaml' },
+        },
+      },
       ansiblels = {
         filetypes = { 'yaml.ansible' },
         single_file_support = false,

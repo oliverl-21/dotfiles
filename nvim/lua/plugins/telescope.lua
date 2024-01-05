@@ -1,7 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  lazy = false,
-  branch = '0.1.x',
+  lazy = true,
   dependencies = {
     'nvim-lua/plenary.nvim',
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.

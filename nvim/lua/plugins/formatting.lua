@@ -12,7 +12,7 @@ return {
         yaml = { 'prettier' },
         json = { 'prettier' },
         lua = { 'stylua' },
-        python = { 'isor', 'black' },
+        python = { 'isort', 'black' },
       },
       format_on_save = {
         lsp_fallback = true,
