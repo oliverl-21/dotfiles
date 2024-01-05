@@ -15,7 +15,6 @@ return {
   end,
 
   config = function()
-    local lazy_status = require 'lazy.status'
     local lualine_require = require 'lualine_require'
     local Util = require 'lazyvim.util'
     lualine_require.require = require
@@ -46,8 +45,8 @@ return {
           },
           lualine_x = {
             {
-              lazy_status.updates,
-              cond = lazy_status.has_updates,
+              require('lazy.status').updates,
+              cond = require('lazy.status').has_updates,
               color = { fg = '#ff9e64' },
             },
             { 'encoding' },

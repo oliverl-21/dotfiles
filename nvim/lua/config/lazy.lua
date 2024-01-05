@@ -39,7 +39,7 @@ require('lazy').setup {
     },
   },
   change_detection = {
-    notify = true,
+    notify = false,
   },
 }
 
