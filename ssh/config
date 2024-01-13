@@ -8,6 +8,7 @@ include hosts/*.conf
 # General Config
 ##########################################
 
+HashKnownHosts yes
 CheckHostIP no
 Compression no
 TCPKeepAlive yes
