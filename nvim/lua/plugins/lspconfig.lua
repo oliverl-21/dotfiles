@@ -74,7 +74,7 @@ return {
     -- document existing key chains
 
     local servers = {
-      pyright = {},
+      pylsp = {},
       jsonls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
