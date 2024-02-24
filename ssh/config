@@ -25,5 +25,6 @@ ciphers +aes256-cbc
 
 Host *
     useKeychain yes
+    AddKeysToAgent yes
     ServerAliveInterval 120
     ServerAliveCountMax 2
