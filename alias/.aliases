@@ -58,6 +58,9 @@ alias gits='git status'
 alias dig="dig ANY"
 alias dig6="dig -6 ANY"
 alias nslookup6="nslookup -query=AAAA"
+# curl
+alias curltime="curl -w \"@$HOME/.dotfiles/curl/curl-formats.txt\" -o /dev/null -s "
+
 # TMUX
 alias tma="tmux attach || tmux"
 #bash dir Colors
