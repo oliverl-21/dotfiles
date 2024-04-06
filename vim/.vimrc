@@ -39,6 +39,9 @@ set nocompatible
 filetype on             " enable filetype detection
 filetype indent on      " enable filetype-specific indenting
 filetype plugin on      " enable filetype-specific plugins
+set omnifunc=syntaxcomplete#Complete
+set completeopt+=longest
+set completeopt-=menu
 colorscheme torte      " requires cobalt.vim to be in ~/.vim/colors
 
 " column-width visual indication
