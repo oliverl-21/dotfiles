@@ -16,7 +16,8 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | PlugInstall --sync | source $MYVIMRC | endif
 
 call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
-Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-sensible'
+  Plug 'preservim/nerdtree'
 call plug#end()
 
 syntax on               " enable syntax highlighting
@@ -45,8 +46,8 @@ set completeopt-=menu
 colorscheme torte      " requires cobalt.vim to be in ~/.vim/colors
 
 " column-width visual indication
-let &colorcolumn=join(range(81,999),",")
-highlight ColorColumn ctermbg=235 guibg=#001D2F
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=235 guibg=#001D2F
 
 " tabs and indenting
 set expandtab           " spaces instead of tabs
