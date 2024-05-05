@@ -9,6 +9,8 @@ setopt HIST_IGNORE_ALL_DUPS
 unsetopt nomatch
 # deactivate venv prompt mangling
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export LESSHISTFILE="$XDG_STATE_HOME"/less/history
+
 function virtualenv_info { 
     if [[ -n "$VIRTUAL_ENV" ]]; then
 		vpr="(v)";
@@ -43,6 +45,7 @@ autoload -Uz +X bashcompinit && bashcompinit
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source /$XDG_CONFIG_HOME/fzf/.fzf.zsh
 # ZSH Autosuggest
 [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh ] && source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#818181,bold,underline"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 #

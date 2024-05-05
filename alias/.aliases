@@ -6,10 +6,10 @@ if type -p "exa" > /dev/null 2>&1; then
         alias ll="exa -alh --git --icons"
         alias ls="exa --git --icons"
         elif type -p "eza" > /dev/null 2>&1; then
-        alias ll="eza -alh --git --icons"
-        alias ls="eza --git --icons"
+        alias ll="eza -alh --git --icons=auto $argv"
+        alias ls="eza --git --icons=auto $argv"
         else
-        alias ll="ls -alh"
+        alias ll="ls -alh $argv"
 fi
 if type -p "nvim" > /dev/null 2>&1; then
   alias vim="nvim"
@@ -31,8 +31,10 @@ alias sudo="sudo -E"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
+
 # Ansible Aliases
 alias apl="ansible-playbook playbooks/$@"
+
 # Terraform Aliases
 alias tf='terraform'
 alias tfp='terraform plan'
@@ -46,18 +48,22 @@ alias tfg='terraform graph'
 alias tfim='terraform import'
 alias tfin='terraform init'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
 # docker
 alias dcp='docker compose pull'
 alias dcu='docker compose up -d --force-recreate'
+
 # git
 alias gitfpull='git fetch && git pull'
 alias gitac='git commit -a -m'
 alias gitp='git push'
 alias gits='git status'
+
 # dig
 alias dig="dig ANY"
 alias dig6="dig -6 ANY"
 alias nslookup6="nslookup -query=AAAA"
+
 # curl
 alias curltime="curl -w \"@$HOME/.dotfiles/curl/curl-formats.txt\" -o /dev/null -s "
 
