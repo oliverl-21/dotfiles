@@ -30,17 +30,23 @@ config.use_fancy_tab_bar = true
 config.exit_behavior = "Close"
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
+config.window_padding = {
+	left = 10,
+	right = 10,
+	top = 10,
+	bottom = 10,
+}
 config.native_macos_fullscreen_mode = false
--- config.term = "wezterm"
+config.term = "xterm-256color"
 -- config.color_scheme = "tokyonight_moon"
-config.color_scheme = "tokyonight_night"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 30
+config.color_scheme = "Tokyo Night Moon"
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 60
 config.bold_brightens_ansi_colors = true
 config.bidi_enabled = true
 config.bidi_direction = "AutoLeftToRight"
 config.colors = {
-	indexed = { [136] = "#af8700" },
+	indexed = { [136] = "#ece100" },
 }
 
 -- Keyboard Settings

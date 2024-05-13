@@ -13,6 +13,10 @@ keymap.set('v', '>', '>gv')
 vim.api.nvim_set_keymap('n', '<C-_>', 'gcc', { noremap = false })
 vim.api.nvim_set_keymap('', '<C-_>', 'gcc', { noremap = false })
 
+-- Move Line Up/Down in Visual Mode
+keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 vim.api.nvim_create_user_command('W', function()
   vim.cmd 'w !sudo tee % > /dev/null'
 end, {})
