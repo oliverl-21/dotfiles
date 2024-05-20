@@ -49,6 +49,8 @@ alias tfim='terraform import'
 alias tfin='terraform init'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
+alias xq='yq -p xml'
+
 # docker
 alias dcp='docker compose pull'
 alias dcu='docker compose up -d --force-recreate'
