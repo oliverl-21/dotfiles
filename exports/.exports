@@ -6,3 +6,4 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # VIM 
 #export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc" | source $MYVIMRC'
 [ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=vim
