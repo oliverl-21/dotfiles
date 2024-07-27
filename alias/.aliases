@@ -25,6 +25,8 @@ if type -p "bat" > /dev/null 2>&1; then
 fi
 
 alias k="kubectl"
+alias kcl="kubectl delete pods --field-selector status.phase!=Running --all-namespaces"
+alias t="talosctl"
 
 alias sudo="sudo -E"
 
