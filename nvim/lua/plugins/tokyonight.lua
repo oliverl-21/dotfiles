@@ -5,11 +5,11 @@ return {
   config = function()
     require('tokyonight').setup {
       style = 'moon',
-      terminal_colors = false,
+      terminal_colors = true,
       transparent = true,
-      hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-      dim_inactive = false, -- dims inactive windows
-      lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+      hide_inactive_statusline = true, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+      dim_inactive = true, -- dims inactive windows
+      lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
     }
     vim.cmd [[colorscheme tokyonight]]
   end,

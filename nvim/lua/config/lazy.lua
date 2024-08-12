@@ -22,7 +22,7 @@ require('lazy').setup {
   defaults = {
     lazy = true,
   },
-  install = { colorscheme = { 'tokyonight' } },
+  install = { colorscheme = { 'gruvbox' } },
   checker = { enabled = true },
   performance = {
     rtp = {
