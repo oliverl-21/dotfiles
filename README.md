@@ -1,15 +1,18 @@
 # dotfiles
 
 ## Usage
-to clean the clutter in your ~ the ```XDG_CONFIG_HOME``` variable is a good advice to look at. [arch Wiki - XDG Base Directory](https://wiki.archlinux.org/title/XDG_Base_Directory)
+
+to clean the clutter in your ~ the `XDG_CONFIG_HOME` variable is a good advice to look at. [arch Wiki - XDG Base Directory](https://wiki.archlinux.org/title/XDG_Base_Directory)
 
 a lot of applications will automatically use them or can easily be adviced to fetch the configuration from this directory.
 
-as an Example for ZSH take a look in [.zshenv-sample](zsh/.zshenv-sample) copy this file to your home as .zshenv and link .dotfiles/zsh to .config/zsh 
+as an Example for ZSH take a look in [.zshenv-sample](zsh/.zshenv-sample) copy this file to your home as .zshenv and link .dotfiles/zsh to .config/zsh
 
-```ln -s ~/.dotfiles/zsh ~/.config/zsh```
+`ln -s ~/.dotfiles/zsh ~/.config/zsh`
 
-the variable ```ZDOTDIR``` in .zshenv-sample tells zsh to look at this folder and tries to load all neccessary files from this folder.
+the variable `ZDOTDIR` in .zshenv-sample tells zsh to look at this folder and tries to load all neccessary files from this folder.
+
+ZSH Order of operation `.zshenv → .zprofile → .zshrc → .zlogin → .zlogout`
 
 ### Result
 
@@ -27,8 +30,8 @@ Ansible could be used for this
 - hosts: localhost
 
   tasks:
-  - name: setup dotfiles
-    ansible.builtin.import_tasks: ../roles/common/tasks/shell.yml
+    - name: setup dotfiles
+      ansible.builtin.import_tasks: ../roles/common/tasks/shell.yml
 ```
 
 ### Tasks File
@@ -118,5 +121,4 @@ Ansible could be used for this
     dest: "{{ ansible_facts.user_dir }}/.config/tmux/tmux.conf"
     state: link
     force: true
-
 ```

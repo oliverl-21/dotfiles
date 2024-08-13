@@ -18,6 +18,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | 
 call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'preservim/nerdtree'
+  Plug 'morhetz/gruvbox'
 call plug#end()
 
 syntax on               " enable syntax highlighting
@@ -43,7 +44,7 @@ filetype plugin on      " enable filetype-specific plugins
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=longest
 set completeopt-=menu
-colorscheme torte      " requires cobalt.vim to be in ~/.vim/colors
+colorscheme gruvbox      " requires cobalt.vim to be in ~/.vim/colors
 
 " column-width visual indication
 " let &colorcolumn=join(range(81,999),",")
