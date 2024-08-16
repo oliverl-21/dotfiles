@@ -26,6 +26,16 @@ function virtualenv_info {
 fi;
 }
 
+# PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+# append linux PATH
+[ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
+
+# append mac PATH
+[ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
+[ -f /opt/homebrew/bin/brew ] &&  eval $(/opt/homebrew/bin/brew shellenv)
+[ -d $HOMEBREW_PREFIX/share/zsh/site-functions ] && FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+
 # ZINIT 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -45,16 +55,6 @@ autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 zinit cdreplay -q
 
-# PATH
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-# append linux PATH
-[ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
-
-# append mac PATH
-[ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
-[ -f /opt/homebrew/bin/brew ] &&  eval $(/opt/homebrew/bin/brew shellenv)
-[ -d $HOMEBREW_PREFIX/share/zsh/site-functions ] && FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
-
 # source files
 [ -f $HOME/.env ] && source $HOME/.env
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
@@ -63,6 +63,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -f $XDG_CONFIG_HOME/zsh/vcs_info.zsh ] && source $XDG_CONFIG_HOME/zsh/vcs_info.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf
 [ -f $XDG_CONFIG_HOME/fzf/.fzf.zsh ] && source /$XDG_CONFIG_HOME/fzf/.fzf.zsh
+
 
 precmd() {
     _update_vcs_info_msg;
