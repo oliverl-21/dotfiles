@@ -19,7 +19,14 @@ call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'preservim/nerdtree'
   Plug 'morhetz/gruvbox'
+  Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 call plug#end()
+
+" configure oscyank
+let g:oscyank_max_length = 0  " maximum length of a selection
+let g:oscyank_silent     = 0  " disable message on successful copy
+let g:oscyank_trim       = 0  " trim surrounding whitespaces before copy
+let g:oscyank_osc52      = "\x1b]52;c;%s\x07"  " the OSC52 format string to use
 
 syntax on               " enable syntax highlighting
 set cursorline          " highlight the current line
@@ -78,6 +85,10 @@ inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
 inoremap {}     {}
+
+nmap <leader>c <Plug>OSCYankOperator
+nmap <leader>cc <leader>c_
+vmap <leader>c <Plug>OSCYankVisual
 
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_DATA_HOME/vim
