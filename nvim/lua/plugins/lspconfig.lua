@@ -72,7 +72,6 @@ return {
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
     -- document existing key chains
-
     local servers = {
       pylsp = {},
       jsonls = {},
