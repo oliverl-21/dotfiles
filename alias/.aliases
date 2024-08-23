@@ -13,6 +13,7 @@ if type -p "exa" > /dev/null 2>&1; then
 fi
 if type -p "nvim" > /dev/null 2>&1; then
   alias vim="env -u VIMINIT nvim"
+  alias nvim="env -u VIMINIT nvim"
   elif type -p "vim" > /dev/null 2>&1; then
         alias vim="vim -u $XDG_CONFIG_HOME/vim/.vimrc"
 fi
@@ -33,9 +34,6 @@ alias sudo="sudo -E"
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
-
-# Ansible Aliases
-alias apl="ansible-playbook playbooks/$@"
 
 # Terraform Aliases
 alias tf='terraform'

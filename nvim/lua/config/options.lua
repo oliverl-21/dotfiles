@@ -31,7 +31,6 @@ opt.swapfile = false
 opt.backup = false
 opt.backspace = 'indent,eol,start'
 opt.autochdir = false
-opt.clipboard:append 'unnamedplus'
 opt.mouse = 'a'
 opt.updatetime = 250
 opt.timeoutlen = 300

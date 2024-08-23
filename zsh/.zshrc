@@ -11,7 +11,10 @@ export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc" | source $MYVIMRC'
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
+setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
+setopt SHARE_HISTORY      # Share history between sessions
+setopt extended_glob null_glob
 # no escaping
 unsetopt nomatch
 # deactivate venv prompt mangling
@@ -32,9 +35,11 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 [ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
 
 # append mac PATH
-[ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
-[ -f /opt/homebrew/bin/brew ] &&  eval $(/opt/homebrew/bin/brew shellenv)
-[ -d $HOMEBREW_PREFIX/share/zsh/site-functions ] && FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+if [[ "$OSTYPE" == darwin* ]]; then
+  [ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
+  [ -f /opt/homebrew/bin/brew ] &&  eval $(/opt/homebrew/bin/brew shellenv)
+  [ -d $(brew --prefix)/share/zsh/site-functions ] && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
 
 # ZINIT 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
