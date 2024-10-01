@@ -78,7 +78,7 @@ return {
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
       terraformls = {},
-      tsserver = { filetypes = { 'nofile' }, autostart = false },
+      -- tsserver = { filetypes = { 'nofile' }, autostart = false },
       yamlls = {
         yaml = {
           schemas = { ['https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/master-standalone-strict/all.json'] = '/*.k8s.yaml' },
