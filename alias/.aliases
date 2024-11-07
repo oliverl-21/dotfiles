@@ -69,6 +69,9 @@ alias nslookup6="nslookup -query=AAAA"
 # curl
 alias curltime="curl -w \"@$HOME/.dotfiles/curl/curl-formats.txt\" -o /dev/null -s "
 
+# ip
+alias ip="ip --color"
+
 # TMUX
 alias tma="tmux attach || tmux"
 #bash dir Colors
