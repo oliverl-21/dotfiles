@@ -99,7 +99,7 @@ return {
       },
       lua_ls = {
         Lua = {
-          workspace = { checkThirdParty = false },
+          workspace = { checkThirdParty = true },
           telemetry = { enable = false },
           completion = {
             callSnippet = 'Replace',

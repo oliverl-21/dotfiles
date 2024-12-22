@@ -1,0 +1,1 @@
+/Users/oliver/Applications/Ghostty.app/Contents/Resources/vim/vimfiles/syntax/ghostty.vim

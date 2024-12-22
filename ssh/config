@@ -17,6 +17,7 @@ VisualHostKey no
 UpdateHostKeys yes
 IgnoreUnknown useKeychain
 KexAlgorithms +diffie-hellman-group14-sha1
+HostKeyAlgorithms=+ssh-rsa
 ciphers +aes256-cbc
 
 ##########################################
@@ -24,6 +25,7 @@ ciphers +aes256-cbc
 ##########################################
 
 Host *
+    SetEnv TERM=xterm-256color
     useKeychain yes
     AddKeysToAgent yes
     ServerAliveInterval 120
