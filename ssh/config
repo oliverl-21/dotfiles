@@ -25,7 +25,6 @@ ciphers +aes256-cbc
 ##########################################
 
 Host *
-    SetEnv TERM=xterm-256color
     useKeychain yes
     AddKeysToAgent yes
     ServerAliveInterval 120
