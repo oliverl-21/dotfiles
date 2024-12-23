@@ -3,11 +3,11 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   lazy = true,
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
     { 'antosha417/nvim-lsp-file-operations', config = true },
     'williamboman/mason-lspconfig.nvim',
     { 'folke/neodev.nvim', opts = {} },
     { 'folke/neoconf.nvim', cmd = 'Neoconf' },
+    'saghen/blink.cmp',
   },
   config = function()
     require('neoconf').setup {
@@ -21,9 +21,6 @@ return {
     local lspconfig = require 'lspconfig'
     local mason_lspconfig = require 'mason-lspconfig'
     local navic = require 'nvim-navic'
-
-    -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require 'cmp_nvim_lsp'
 
     -- [[ Configure LSP ]]
     --  This function gets run when an LSP connects to a particular buffer.
@@ -67,9 +64,8 @@ return {
       end, { desc = 'Format current buffer with LSP' })
     end
     -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
     -- used to enable autocompletion (assign to every lsp server config)
-    capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
     -- document existing key chains
     local servers = {
