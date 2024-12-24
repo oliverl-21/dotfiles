@@ -41,3 +41,4 @@ window-decoration = false
 # Other
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
+quit-after-last-window-closed = true
