@@ -2,7 +2,7 @@
 # Aliases
 ############################################################
 alias ..="cd .."
-if type -p "exa" > /dev/null 2>&1; then 
+if type -p "exa" > /dev/null 2>&1; then
         alias ll="exa -alh --git --icons"
         alias ls="exa --git --icons"
         elif type -p "eza" > /dev/null 2>&1; then
@@ -62,8 +62,7 @@ alias gitp='git push'
 alias gits='git status'
 
 # dig
-alias dig="dig ANY"
-alias dig6="dig -6 ANY"
+alias dig6="dig -6 $@"
 alias nslookup6="nslookup -query=AAAA"
 
 # curl

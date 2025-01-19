@@ -42,4 +42,4 @@ window-decoration = false
 copy-on-select = clipboard
 shell-integration-features = cursor,sudo,no-title
 quit-after-last-window-closed = true
-auto-update-channel = tip
+auto-update-channel = stable

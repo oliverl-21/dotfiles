@@ -69,7 +69,6 @@ return {
 
     -- document existing key chains
     local servers = {
-      pylsp = {},
       jsonls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
       tflint = {},
@@ -124,24 +123,6 @@ return {
           filetypes = (servers[server_name] or {}).filetypes,
         }
       end,
-    }
-
-    lspconfig['bashls'].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      filetypes = { 'sh' },
-      settings = {
-        bashIde = {
-          globPattern = '*@(.sh|.inc|.bash|.command)',
-          backgroundAnalysisMaxFiles = 500,
-          enableSourceErrorDiagnostics = true,
-          explainshellEndpoint = '',
-          includeAllWorkspaceSymbols = true,
-          logLevel = 'info',
-          shellcheckArguments = '',
-          shellcheckPath = 'shellcheck',
-        },
-      },
     }
   end,
 }
