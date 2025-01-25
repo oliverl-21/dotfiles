@@ -29,8 +29,6 @@ alias k="kubectl"
 alias kcl="kubectl delete pods --field-selector status.phase!=Running --all-namespaces"
 alias t="talosctl"
 
-alias sudo="sudo -E"
-
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
 alias duf="du -sh -- * .*"
