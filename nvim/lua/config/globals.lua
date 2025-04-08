@@ -20,6 +20,10 @@ vim.g.clipboard = {
     ['*'] = paste,
   },
 }
+vim.diagnostic.config {
+  virtual_lines = { current_line = true },
+}
+
 -- vim.g.clipboard = {
 --   name = 'OSC 52',
 --   copy = {
