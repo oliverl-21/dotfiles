@@ -1,4 +1,3 @@
-asitop
 bash-completion
 bat
 esolitos/ipa/sshpass
@@ -15,12 +14,17 @@ iperf3
 jq
 k9s
 kubectx
+libssh
+minicom
 neovim
 node
+pkgconf
+python@3.12
 ripgrep
-rust
-siderolabs/tap/talosctl
+shfmt
+talosctl
 terraform-ls
 tmux
+uv
 wget
 yq
