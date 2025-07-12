@@ -10,7 +10,7 @@ include hosts/*.conf
 
 HashKnownHosts yes
 CheckHostIP no
-Compression no
+Compression yes
 TCPKeepAlive yes
 StrictHostKeyChecking no
 VisualHostKey no

@@ -71,7 +71,7 @@ return {
     local servers = {
       jsonls = {},
       html = { filetypes = { 'html', 'twig', 'hbs' } },
-      tflint = {},
+      -- tflint = {},
       terraformls = {},
       -- tsserver = { filetypes = { 'nofile' }, autostart = false },
       yamlls = {
