@@ -33,4 +33,4 @@ opt.backspace = 'indent,eol,start'
 opt.autochdir = false
 opt.mouse = 'a'
 opt.updatetime = 250
-opt.timeoutlen = 300
+opt.timeoutlen = 500

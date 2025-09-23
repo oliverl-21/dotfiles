@@ -6,7 +6,7 @@ adjust-underline-position = 4
 
 clipboard-read = allow
 clipboard-write = allow
-theme = tokyonight-storm
+theme = "TokyoNight Storm"
 bold-is-bright = true
 background = #24283b
 foreground = #c0caf5

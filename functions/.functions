@@ -16,12 +16,12 @@ echo $((${1}%256))
 }
 # ansible galaxy collection update
 function agu {
-command -v ansible &> /dev/null && rm -rf $(pip show ansible | grep Location | cut -d ' ' -f 2)/ansible_collections 
+command -v ansible &> /dev/null && rm -rf $(pip show ansible | grep Location | cut -d ' ' -f 2)/ansible_collections
 command -v ansible-galaxy &> /dev/null && ansible-galaxy collection install $(ansible-galaxy collection list | cut -d ' ' -f 1 -s | cut -d '.' -f 1,2 -s) --upgrade --ignore-errors
 }
 
-function terraform() { 
-    echo "+ terraform $@"; command terraform $@; 
+function terraform() {
+    echo "+ terraform $@"; command terraform $@;
     }
 
 # set a variable for your FIRMWARE_PATH in ~/.zshenv or ~/.zshrc
@@ -72,14 +72,14 @@ fi
 function amilocaladmin() {
     localsys="$(uname)";
     [ -e /usr/sbin/dseditgroup ] && checkadmin="$(dseditgroup -o checkmember admin)";
-    if [[ $localsys == "Darwin" && $checkadmin == *"yes"* ]]; 
+    if [[ $localsys == "Darwin" && $checkadmin == *"yes"* ]];
     then
         echo "You are already an Localadmin";
         "$@";
-    elif [ -d /Applications/Self\ Service.app ];
+    elif [ -d /Applications/Self\ Service+.app ];
     then
         echo "not an Admin, Starting Self Service APP";
-        /usr/bin/open "/Applications/Self Service.app";
+        /usr/bin/open "/Applications/Self Service+.app";
     else
         echo "command not required"
     fi

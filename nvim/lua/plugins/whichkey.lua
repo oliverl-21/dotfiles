@@ -1,36 +1,52 @@
-return {
+return { -- Useful plugin to show you pending keybinds.
   'folke/which-key.nvim',
-  event = 'VeryLazy',
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 500
-    require('which-key').add {
-      { '<leader>c', group = '[C]ode' },
-      { '', desc = '<leader>c_', hidden = true },
-      { '<leader>d', group = '[D]ocument' },
-      { '', desc = '<leader>d_', hidden = true },
-      { '<leader>g', group = '[G]it' },
-      { '', desc = '<leader>g_', hidden = true },
-      { '<leader>r', group = '[R]ename' },
-      { '', desc = '<leader>r_', hidden = true },
-      { '<leader>s', group = '[S]earch' },
-      { '', desc = '<leader>s_', hidden = true },
-      { '<leader>w', group = '[W]orkspace' },
-      { '', desc = '<leader>w_', hidden = true },
-    }
-  end,
+  event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   opts = {
-    mode = 'n', -- NORMAL mode
-    -- prefix: use "<leader>f" for example for mapping everything related to finding files
-    -- the prefix is prepended to every mapping part of `mappings`
-    prefix = ' ',
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
-    expr = false, -- use `expr` when creating keymaps
+    -- delay between pressing a key and opening which-key (milliseconds)
+    -- this setting is independent of vim.o.timeoutlen
+    delay = 0,
+    icons = {
+      -- set icon mappings to true if you have a Nerd Font
+      mappings = vim.g.have_nerd_font,
+      -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+      -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
+      keys = vim.g.have_nerd_font and {} or {
+        Up = '<Up> ',
+        Down = '<Down> ',
+        Left = '<Left> ',
+        Right = '<Right> ',
+        C = '<C-…> ',
+        M = '<M-…> ',
+        D = '<D-…> ',
+        S = '<S-…> ',
+        CR = '<CR> ',
+        Esc = '<Esc> ',
+        ScrollWheelDown = '<ScrollWheelDown> ',
+        ScrollWheelUp = '<ScrollWheelUp> ',
+        NL = '<NL> ',
+        BS = '<BS> ',
+        Space = '<Space> ',
+        Tab = '<Tab> ',
+        F1 = '<F1>',
+        F2 = '<F2>',
+        F3 = '<F3>',
+        F4 = '<F4>',
+        F5 = '<F5>',
+        F6 = '<F6>',
+        F7 = '<F7>',
+        F8 = '<F8>',
+        F9 = '<F9>',
+        F10 = '<F10>',
+        F11 = '<F11>',
+        F12 = '<F12>',
+      },
+    },
+
+    -- Document existing key chains
+    spec = {
+      { '<leader>s', group = '[S]earch' },
+      { '<leader>t', group = '[T]oggle' },
+      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+    },
   },
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
 }

@@ -3,8 +3,6 @@ local Util = require 'lazyvim.util'
 
 local keymap = vim.keymap
 
-keymap.set('n', '<C-b>', '<Cmd>Neotree toggle<CR>')
-
 -- Indenting
 keymap.set('v', '<', '<gv')
 keymap.set('v', '>', '>gv')
@@ -23,7 +21,7 @@ end, {})
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+--vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Diagnostic keymaps
 keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
