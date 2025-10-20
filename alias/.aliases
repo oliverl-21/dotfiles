@@ -48,7 +48,6 @@ alias tfin='terraform init'
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 alias xq='yq -p xml'
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # docker
 alias dcp='docker compose pull'
