@@ -50,8 +50,14 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 alias xq='yq -p xml'
 
 # docker
-alias dcp='docker compose pull'
-alias dcu='docker compose up -d --force-recreate'
+if command -v docker; then
+  alias dcp='docker compose pull'
+  alias dcu='docker compose up -d --force-recreate'
+fi
+# tailscale on macOS
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+fi
 
 # git
 alias gitfpull='git fetch && git pull'
