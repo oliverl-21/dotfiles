@@ -50,7 +50,7 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 alias xq='yq -p xml'
 
 # docker
-if command -v docker; then
+if type -p "docker" > /dev/null 2>&1; then
   alias dcp='docker compose pull'
   alias dcu='docker compose up -d --force-recreate'
 fi
