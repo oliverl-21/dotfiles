@@ -79,11 +79,16 @@ function amilocaladmin() {
     elif [ -d /Applications/Self\ Service+.app ];
     then
         echo "not an Admin, Starting Self Service APP";
-        /usr/bin/open "/Applications/Self Service+.app";
+        /usr/bin/open -b jamf.selfserviceplus --hide;
+        sleep 3
+        /usr/bin/open "jamfselfservice://content?entity=policy&id=38&action=execute" -g;
+        sleep 20
+        pkill -n "Self Service+"
     else
         echo "command not required"
     fi
     unset localsys
+    unset checkadmin
 }
 # homebrew update on macOS including brew cu
 # https://github.com/buo/homebrew-cask-upgrade
@@ -93,9 +98,9 @@ function bug {
     if [[ $localsys == "Darwin" ]];
     then
         echo "executing brew upgrade";
-        amilocaladmin brew update && brew cu -f;
+        amilocaladmin brew update && brew cu;
         printf 'Press any key to continue...';read ans
-        brew upgrade && brew cu -a -f -y;
+        brew upgrade && brew cu -a -f -y --cleanup;
         brew cleanup;
     else
         echo "you are not on macOS"
