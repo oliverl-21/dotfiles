@@ -1,6 +1,9 @@
 export BAT_CONFIG_PATH="$HOME/.dotfiles/bat/config"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc" | source $MYVIMRC'
-
+#Ghostty
+if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
+  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+fi
 # Colors
 #unset LSCOLORS
 export CLICOLOR=1

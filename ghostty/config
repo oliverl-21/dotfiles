@@ -40,6 +40,6 @@ window-decoration = false
 
 # Other
 copy-on-select = clipboard
-shell-integration-features = cursor,sudo,no-title
+shell-integration-features = cursor,sudo,no-title,ssh-terminfo
 quit-after-last-window-closed = true
 auto-update-channel = stable
