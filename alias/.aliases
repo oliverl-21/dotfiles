@@ -31,7 +31,7 @@ alias t="talosctl"
 
 alias cdans="cd $ANSIBLE_PATH && source ./bin/activate"
 alias cdtf="cd $TERRAFORM_PATH"
-alias duf="du -sh -- * .*"
+alias duf="du -sh -- * .* 2> /dev/null"
 
 # Terraform Aliases
 alias tf='terraform'

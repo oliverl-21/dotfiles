@@ -16,7 +16,7 @@ unsetopt nomatch
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 
-function virtualenv_info { 
+function virtualenv_info {
     if [[ -n "$VIRTUAL_ENV" ]]; then
 		vpr="(v)";
 	else
@@ -36,7 +36,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   [ -d $(brew --prefix)/share/zsh/site-functions ] && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
-# ZINIT 
+# ZINIT
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -59,6 +59,7 @@ zinit cdreplay -q
 [ -f $HOME/.env ] && source $HOME/.env
 [ -f $XDG_CONFIG_HOME/.aliases ] && source $XDG_CONFIG_HOME/.aliases
 [ -f $XDG_CONFIG_HOME/.functions ] && source $XDG_CONFIG_HOME/.functions
+[ -f $XDG_CONFIG_HOME/.exports ] && source $XDG_CONFIG_HOME/.exports
 [ -f $XDG_CONFIG_HOME/zsh/.zshprompt ] && source $XDG_CONFIG_HOME/zsh/.zshprompt
 [ -f $XDG_CONFIG_HOME/zsh/vcs_info.zsh ] && source $XDG_CONFIG_HOME/zsh/vcs_info.zsh
 [ -f $HOME/.dotfiles/exa/exa.conf ] && source $HOME/.dotfiles/exa/exa.conf

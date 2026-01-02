@@ -71,7 +71,7 @@ fi
 # verify if local user is Admin, otherwise start Self Service APP to manually gain temporary local Admin
 function amilocaladmin() {
     localsys="$(uname)";
-    [ -e /usr/sbin/dseditgroup ] && checkadmin="$(dseditgroup -o checkmember admin)";
+    [ -e /usr/sbin/dseditgroup ] && checkadmin="$(dseditgroup -o checkmember -m $USER admin)";
     if [[ $localsys == "Darwin" && $checkadmin == *"yes"* ]];
     then
         echo "You are already an Localadmin";
@@ -79,11 +79,13 @@ function amilocaladmin() {
     elif [ -d /Applications/Self\ Service+.app ];
     then
         echo "not an Admin, Starting Self Service APP";
-        /usr/bin/open -b jamf.selfserviceplus --hide;
-        sleep 3
+        /usr/bin/open "jamfselfservice://content?entity=policy&id=38&action=view" --hide;
+        sleep 3;
+        echo "executing Admin task";
         /usr/bin/open "jamfselfservice://content?entity=policy&id=38&action=execute" -g;
-        sleep 20
-        pkill -n "Self Service+"
+        until dseditgroup -o checkmember -m $USER admin | grep -m 1 "yes"; do sleep 1; done | &> /dev/null;
+        # sleep 20;
+        pkill -n "Self Service+";
     else
         echo "command not required"
     fi
@@ -100,8 +102,8 @@ function bug {
         echo "executing brew upgrade";
         amilocaladmin brew update && brew cu;
         printf 'Press any key to continue...';read ans
-        brew upgrade && brew cu -a -f -y --cleanup;
-        brew cleanup;
+        brew upgrade && brew cu -a -f -y;
+        brew cleanup --prune=all;
     else
         echo "you are not on macOS"
     fi
