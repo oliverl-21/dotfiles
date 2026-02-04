@@ -57,6 +57,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 zinit cdreplay -q
+# Bidndkey for Autosuggest
+bindkey '^e' autosuggest-accept
+bindkey '^a' beginning-of-line
 
 # source files
 [ -f $HOME/.env ] && source $HOME/.env
