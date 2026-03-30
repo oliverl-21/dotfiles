@@ -60,6 +60,8 @@ zinit cdreplay -q
 # Bidndkey for Autosuggest
 bindkey '^e' autosuggest-accept
 bindkey '^a' beginning-of-line
+bindkey '^b' backward-word
+bindkey '^f' forward-word
 
 # source files
 [ -f $HOME/.env ] && source $HOME/.env

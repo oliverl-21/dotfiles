@@ -20,10 +20,6 @@ command -v ansible &> /dev/null && rm -rf $(pip show ansible | grep Location | c
 command -v ansible-galaxy &> /dev/null && ansible-galaxy collection install $(ansible-galaxy collection list | cut -d ' ' -f 1 -s | cut -d '.' -f 1,2 -s) --upgrade --ignore-errors
 }
 
-function terraform() {
-    echo "+ terraform $@"; command terraform $@;
-    }
-
 # set a variable for your FIRMWARE_PATH in ~/.zshenv or ~/.zshrc
 # echo 'export FIRMWARE_PATH="your path"' >> ~/.zshenv
 

@@ -1,3 +1,8 @@
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 export BAT_CONFIG_PATH="$HOME/.dotfiles/bat/config"
 # VIM
 #export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc" | source $MYVIMRC'
@@ -14,6 +19,6 @@ export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform"
 # Taloslinux
 export TALOSCONFIG="$XDG_CONFIG_HOME/talos/config"
 # Ansible
-export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
-export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible.cfg"
-export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
+# export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+# export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible.cfg"
+# export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
