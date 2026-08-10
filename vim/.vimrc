@@ -4,6 +4,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo,~/,/tmp
 set viminfo+='1000,n$XDG_CACHE_HOME/vim/viminfo
 set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 let $MYVIMRC="$HOME/.config/vim/.vimrc"
+set rtp+=/opt/homebrew/opt/fzf
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '$XDG_CONFIG_HOME/vim'
 

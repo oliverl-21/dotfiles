@@ -6,7 +6,7 @@ adjust-underline-position = 4
 
 clipboard-read = allow
 clipboard-write = allow
-theme = techbase
+theme = "TokyoNight Night"
 font-thicken = false
 macos-non-native-fullscreen = true
 macos-titlebar-style = native
