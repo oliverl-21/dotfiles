@@ -2,9 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 if [ "`id -u`" -eq 0 ]; then
-    PS1="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1;31m\]\u\[\e[1;36m\]\[\033[m\]@\[\e[1;36m\]\h\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
+    PS1="\[\033[m\]|\[\033[35m\]\t\[\033[m\]|\[\e[31m\]\u\[\033[m\]@\[\e[36m\]\h\[\033[m\]:\[\e[32m\][\W]> \[\e[0m\]"
 else
-    PS1="\[\033[m\]|\[\033[1;35m\]\t\[\033[m\]|\[\e[1m\]\u\[\e[1;36m\]\[\033[m\]@\[\e[1;36m\]\h\[\033[m\]:\[\e[0m\]\[\e[1;32m\][\W]> \[\e[0m\]"
+    PS1="\[\033[m\]|\[\033[35m\]\t\[\033[m\]|\u@\[\e[36m\]\h\[\033[m\]:\[\e[32m\][\W]> \[\e[0m\]"
 fi
 
 # If not running interactively, don't do anything
@@ -62,7 +62,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]\$ '
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
