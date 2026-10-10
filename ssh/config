@@ -9,16 +9,13 @@ include hosts/*.conf
 ##########################################
 
 HashKnownHosts yes
-CheckHostIP no
 Compression yes
 TCPKeepAlive yes
-StrictHostKeyChecking no
+StrictHostKeyChecking accept-new
 VisualHostKey no
 UpdateHostKeys yes
 IgnoreUnknown useKeychain
-KexAlgorithms +diffie-hellman-group14-sha1
-HostKeyAlgorithms=+ssh-rsa
-ciphers +aes256-cbc
+# Legacy crypto (SHA1 KEX, ssh-rsa, CBC) lives in hosts/legacy.conf, scoped per host
 
 ##########################################
 # Default System
