@@ -1,0 +1,439 @@
+#compdef fm
+local context state state_descr line
+_fm_commandname=$words[1]
+typeset -A opt_args
+
+_fm() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'respond:Generate a response to a prompt.'
+                'chat:Start an interactive chat session.'
+                'count-tokens:Count the tokens in a prompt, instructions, or transcript.'
+                'schema:Generate a structured output generation schema.'
+                'serve:Start a Chat Completions API server for Foundation Models.'
+                'models:Check model availability.'
+                'quota-usage:Check model quota usage.'
+                'license:Show and agree to the Foundation Models CLI Legal Notice & Terms.'
+                'config:View and edit the CLI configuration.'
+                'help:Show subcommand help information.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (respond)
+                    _fm_respond
+                    ;;
+                (chat)
+                    _fm_chat
+                    ;;
+                (count-tokens)
+                    _fm_count-tokens
+                    ;;
+                (schema)
+                    _fm_schema
+                    ;;
+                (serve)
+                    _fm_serve
+                    ;;
+                (models)
+                    _fm_models
+                    ;;
+                (quota-usage)
+                    _fm_quota-usage
+                    ;;
+                (license)
+                    _fm_license
+                    ;;
+                (config)
+                    _fm_config
+                    ;;
+                (help)
+                    _fm_help
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_fm_respond() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--stream[Stream the output as it'"'"'s generated]'
+        '--no-stream[Stream the output as it'"'"'s generated]'
+        '(--greedy -g)'{--greedy,-g}'[Use greedy sampling]'
+        '(--model -m)'{--model,-m}'[Model to use: system, pcc, or a model served by --model-provider]:model:'
+        '--model-provider[Chat Completions model provider: a configured name or a base URL (e.g. http://host:port/v1)]:model-provider:'
+        '*--model-provider-header[Extra request header for --model-provider, as '"'"'Name: Value'"'"' (repeatable)]:model-provider-header:'
+        '--use-case[Use case for the language model]:use-case:'
+        '--guardrails[Guardrail level for the language model]:guardrails:'
+        '(--verbose -v)'{--verbose,-v}'[Print verbose output]'
+        '(--instructions -i)'{--instructions,-i}'[Instructions for the model to follow]:instructions:'
+        '--schema[A path to a schema file, or an inline schema string]:schema:_files -g '"'"'*.json'"'"''
+        ':prompt:'
+        '*--text[Text segment to include in the prompt]:text:'
+        '*--image[Path to an image to include in the prompt]:image:_files'
+        '*--label[Label for the corresponding --image (repeatable, paired by order). Requires --tool. Defaults to '"'"'image_<index>'"'"'.]:label:'
+        '*--tool[Built-in tool to enable (repeatable). Known: barcode, ocr.]:tool:'
+        '--save-transcript[Save the transcript to a file after responding. An absolute path is used as-is; a bare filename is saved in the current directory.]:save-transcript:_files -g '"'"'*.json'"'"''
+        '--resume[Continue an earlier conversation: load a saved transcript so the model picks up with its previous turns as context]:resume:_files -g '"'"'*.json'"'"''
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_chat() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--model -m)'{--model,-m}'[Model to use: system, pcc, or a model served by --model-provider]:model:'
+        '--model-provider[Chat Completions model provider: a configured name or a base URL (e.g. http://host:port/v1)]:model-provider:'
+        '*--model-provider-header[Extra request header for --model-provider, as '"'"'Name: Value'"'"' (repeatable)]:model-provider-header:'
+        '--use-case[Use case for the language model]:use-case:'
+        '--guardrails[Guardrail level for the language model]:guardrails:'
+        '(--resume -r)'{--resume,-r}'[Resume a saved chat session]:resume:'
+        '--continue[Continue the most recent chat session]'
+        '(--instructions -i)'{--instructions,-i}'[Instructions for the model]:instructions:'
+        '*--tool[Built-in tool to enable (repeatable). Known: barcode, ocr.]:tool:'
+        '--set-default-model[Persist <model> as the default for future fm chat sessions]:set-default-model:(system pcc)'
+        '--set-ax-screen-reader'
+        '--set-no-ax-screen-reader'
+        '--ax-screen-reader[Render output for a screen reader: plain lines, no animation or cursor redrawing]'
+        '--no-ax-screen-reader[Render output for a screen reader: plain lines, no animation or cursor redrawing]'
+        '--set-ax-bell[Persist whether screen reader mode rings the bell when a slow turn finishes]:set-ax-bell:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_count-tokens() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--verbose -v)'{--verbose,-v}'[Print verbose output]'
+        '(--instructions -i)'{--instructions,-i}'[Instructions for the model to follow]:instructions:'
+        '--schema[A path to a schema file, or an inline schema string]:schema:_files -g '"'"'*.json'"'"''
+        ':prompt:'
+        '*--text[Text segment to include in the prompt]:text:'
+        '*--image[Path to an image to include in the prompt]:image:_files'
+        '*--label[Label for the corresponding --image (repeatable, paired by order). Requires --tool. Defaults to '"'"'image_<index>'"'"'.]:label:'
+        '(--quiet -q)'{--quiet,-q}'[Print only the integer count (automatic when stdout is piped or redirected)]'
+        '--transcript[Path to a saved transcript to count. Its turns are counted as a framed conversation.]:transcript:_files -g '"'"'*.json'"'"''
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_schema() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'object:Generate a structured output schema for an object type.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (object)
+                    _fm_schema_object
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_fm_schema_object() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--name[Name of the root object type.]:name:'
+        ':property-declarations:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_serve() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--host[Host address to bind to (TCP mode)]:host:'
+        '--port[Port to listen on, 1-65535 (TCP mode)]:port:'
+        '--socket[Unix domain socket path (socket mode)]:socket:'
+        '--model-provider[Chat Completions model provider (name or base URL) for non-built-in request models]:model-provider:'
+        '*--model-provider-header[Extra model provider header, as '"'"'Name: Value'"'"' (repeatable)]:model-provider-header:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_models() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--model-provider[Chat Completions model provider: a configured name or a base URL]:model-provider:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_quota-usage() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(--model -m)'{--model,-m}'[Model to check: system or pcc (default: all)]:model:(system pcc)'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_license() {
+    integer ret=1
+    local -a args
+    args+=(
+        '--status[Report whether the license has been agreed to, without prompting.]'
+        '--show[Print the license text without prompting.]'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'add:Add a configuration entry.'
+                'remove:Remove a configuration entry.'
+                'set:Set a default: '"'"'default-model-provider <name-or-url>'"'"' or '"'"'default-model <name>'"'"'.'
+                'get:Print one configuration value: default-model-provider, default-model, or model-provider <name>.'
+                'list:Print the current configuration.'
+                'path:Print the configuration file path.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (add)
+                    _fm_config_add
+                    ;;
+                (remove)
+                    _fm_config_remove
+                    ;;
+                (set)
+                    _fm_config_set
+                    ;;
+                (get)
+                    _fm_config_get
+                    ;;
+                (list)
+                    _fm_config_list
+                    ;;
+                (path)
+                    _fm_config_path
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_fm_config_add() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'model-provider:Add or replace a named Chat Completions model provider.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (model-provider)
+                    _fm_config_add_model-provider
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_fm_config_add_model-provider() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':name:'
+        ':url:'
+        '*--model-provider-header[Header stored with this model provider, as '"'"'Name: Value'"'"' (repeatable)]:model-provider-header:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config_remove() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+        '(-): :->command'
+        '(-)*:: :->arg'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+    case $state in
+        (command)
+            local subcommands
+            subcommands=(
+                'model-provider:Remove a named model provider.'
+            )
+            _describe "subcommand" subcommands
+            ;;
+        (arg)
+            case ${words[1]} in
+                (model-provider)
+                    _fm_config_remove_model-provider
+                    ;;
+            esac
+            ;;
+    esac
+
+    return ret
+}
+
+_fm_config_remove_model-provider() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':name:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config_set() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':key:'
+        ':value:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config_get() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':key:'
+        ':name:'
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config_list() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_config_path() {
+    integer ret=1
+    local -a args
+    args+=(
+        '(-h --help)'{-h,--help}'[Show help information.]'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+_fm_help() {
+    integer ret=1
+    local -a args
+    args+=(
+        ':subcommands:'
+    )
+    _arguments -w -s -S $args[@] && ret=0
+
+    return ret
+}
+
+
+_custom_completion() {
+    local completions=("${(@f)$($*)}")
+    _describe '' completions
+}
+
+_fm

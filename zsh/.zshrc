@@ -32,6 +32,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # append linux PATH
 [ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
 
+# FPATH
+[ -d $HOME/.config/zsh/completions ] && FPATH="$HOME/.config/zsh/completions:${FPATH}"
+
 # append mac PATH
 if [[ "$OSTYPE" == darwin* ]]; then
   [ -d /Library/Apple/usr/bin ] && export PATH="/Library/Apple/usr/bin:$PATH"
